@@ -394,7 +394,7 @@ footer{background:#00133D;padding:28px 48px;display:flex;justify-content:space-b
 </div>
 
 <script>
-// Nav — navy fixe, pas de changement au scroll
+window.addEventListener('scroll',function(){var n=document.querySelector('nav');if(window.scrollY>80){n.classList.add('scrolled')}else{n.classList.remove('scrolled')}});
 
 
 
