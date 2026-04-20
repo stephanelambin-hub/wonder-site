@@ -214,15 +214,32 @@ footer{background:#00133D;padding:20px 48px;display:flex;justify-content:space-b
 
 <!-- FILLOUT -->
 <div class="fillout-overlay" id="fillout" onclick="if(event.target===this)closeFillout()">
-  <div class="fillout-box">
+  <div class="fillout-box" id="fillout-box">
     <button class="fillout-close" onclick="closeFillout()">✕</button>
-    <iframe src="" id="fillout-iframe" title="Prendre rendez-vous"></iframe>
   </div>
 </div>
 
 <script>
-function openFillout(){var f=document.getElementById('fillout');var iframe=document.getElementById('fillout-iframe');if(!iframe.src)iframe.src='https://wonderxperience.fillout.com/rencontre-stephane-lambin';f.classList.add('active');document.body.style.overflow='hidden'}
-function closeFillout(){document.getElementById('fillout').classList.remove('active');document.body.style.overflow=''}
+function openFillout(){
+  var f=document.getElementById('fillout');
+  var box=document.getElementById('fillout-box');
+  if(!document.getElementById('fillout-iframe')){
+    var iframe=document.createElement('iframe');
+    iframe.id='fillout-iframe';
+    iframe.src='https://wonderxperience.fillout.com/rencontre-stephane-lambin';
+    iframe.title='Prendre rendez-vous';
+    iframe.style.cssText='width:100%;height:80vh;border:none;display:block';
+    box.appendChild(iframe);
+  }
+  f.classList.add('active');
+  document.body.style.overflow='hidden';
+}
+function closeFillout(){
+  document.getElementById('fillout').classList.remove('active');
+  document.body.style.overflow='';
+  var iframe=document.getElementById('fillout-iframe');
+  if(iframe) iframe.remove();
+}
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeFillout()});
 
 function submitForm(e) {
