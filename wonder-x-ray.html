@@ -6,7 +6,7 @@
 <title>WONDER X-Ray — Audit Expérience Client & Excellence de Service</title>
 <meta name="description" content="Audit premium de l'expérience client par WONDER. Évaluation humaine de la qualité de service, de l'élégance et de l'excellence relationnelle.">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;font-family:'Poppins',sans-serif}
@@ -56,7 +56,7 @@ nav.scrolled{background:#00133D;border-bottom:1px solid rgba(255,255,255,0.06)}
 .step-card p{font-size:12px;color:#778;font-weight:300;line-height:1.7}
 
 /* RADAR SECTION */
-.radar-wrap{width:100%;max-width:380px;margin:0 auto}
+.radar-wrap{width:100%;max-width:420px;margin:0 auto}
 .radar-layout{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;margin-top:48px}
 .themes-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .t-card{background:#fff;border:1px solid #e8e4eb;border-radius:10px;padding:14px 16px}
@@ -187,7 +187,26 @@ footer{background:#00133D;padding:20px 48px;display:flex;justify-content:space-b
     <div class="radar-layout">
       <!-- Radar -->
       <div class="radar-wrap">
-        <canvas id="radar" width="380" height="380"></canvas>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 520" width="420" height="420">
+  <defs>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');</style>
+  </defs>
+
+  <!-- Grilles hexagonales -->
+  <path d="M 260.0,215.0 L 299.0,237.5 L 299.0,282.5 L 260.0,305.0 L 221.0,282.5 L 221.0,237.5 Z" fill="rgba(230,225,240,0.25)" stroke="rgba(180,170,200,0.3)" stroke-width="1"/><path d="M 260.0,170.0 L 337.9,215.0 L 337.9,305.0 L 260.0,350.0 L 182.1,305.0 L 182.1,215.0 Z" fill="rgba(230,225,240,0.25)" stroke="rgba(180,170,200,0.4)" stroke-width="1"/><path d="M 260.0,125.0 L 376.9,192.5 L 376.9,327.5 L 260.0,395.0 L 143.1,327.5 L 143.1,192.5 Z" fill="rgba(230,225,240,0.25)" stroke="rgba(180,170,200,0.5)" stroke-width="1"/><path d="M 260.0,80.0 L 415.9,170.0 L 415.9,350.0 L 260.0,440.0 L 104.1,350.0 L 104.1,170.0 Z" fill="rgba(230,225,240,0.25)" stroke="rgba(180,170,200,0.7)" stroke-width="1"/>
+
+  <!-- Axes -->
+  <line x1="260" y1="260" x2="260.0" y2="80.0" stroke="rgba(0,19,61,0.15)" stroke-width="1"/><line x1="260" y1="260" x2="415.9" y2="170.0" stroke="rgba(0,19,61,0.15)" stroke-width="1"/><line x1="260" y1="260" x2="415.9" y2="350.0" stroke="rgba(0,19,61,0.15)" stroke-width="1"/><line x1="260" y1="260" x2="260.0" y2="440.0" stroke="rgba(0,19,61,0.15)" stroke-width="1"/><line x1="260" y1="260" x2="104.1" y2="350.0" stroke="rgba(0,19,61,0.15)" stroke-width="1"/><line x1="260" y1="260" x2="104.1" y2="170.0" stroke="rgba(0,19,61,0.15)" stroke-width="1"/>
+
+  <!-- Score area -->
+  <path d="M 260.0,112.4 L 381.6,189.8 L 375.4,326.6 L 260.0,418.4 L 132.2,333.8 L 125.9,182.6 Z" fill="rgba(112,0,255,0.13)" stroke="#6030cc" stroke-width="2.5" stroke-linejoin="round"/>
+
+  <!-- Score dots -->
+  <circle cx="260.0" cy="112.4" r="4" fill="#6030cc"/><circle cx="381.6" cy="189.8" r="4" fill="#6030cc"/><circle cx="375.4" cy="326.6" r="4" fill="#6030cc"/><circle cx="260.0" cy="418.4" r="4" fill="#6030cc"/><circle cx="132.2" cy="333.8" r="4" fill="#6030cc"/><circle cx="125.9" cy="182.6" r="4" fill="#6030cc"/>
+
+  <!-- Labels -->
+  <text x="260.0" y="40.4" dy="-8" text-anchor="middle" font-family="Poppins,sans-serif" font-size="13" font-weight="400" fill="#00133D">Intelligence Situationnelle</text><text x="450.2" y="150.2" dy="0" text-anchor="start" font-family="Poppins,sans-serif" font-size="13" font-weight="400" fill="#00133D">Intérêt Client</text><text x="450.2" y="369.8" dy="0" text-anchor="start" font-family="Poppins,sans-serif" font-size="13" font-weight="400" fill="#00133D">Valorisation Produit</text><text x="260.0" y="479.6" dy="16" text-anchor="middle" font-family="Poppins,sans-serif" font-size="13" font-weight="400" fill="#00133D">Maîtrise des Fondamentaux</text><text x="69.8" y="369.8" dy="0" text-anchor="end" font-family="Poppins,sans-serif" font-size="13" font-weight="400" fill="#00133D">Élégance</text><text x="69.8" y="150.2" dy="0" text-anchor="end" font-family="Poppins,sans-serif" font-size="13" font-weight="400" fill="#00133D">Personnalité</text>
+</svg>
       </div>
       <!-- Thématiques -->
       <div class="themes-grid">
@@ -285,43 +304,7 @@ window.addEventListener('scroll',function(){
   else{n.classList.remove('scrolled')}
 });
 
-// Radar — labels courts, outerRadius réduit
-window.addEventListener('load',function(){
-  const ctx=document.getElementById('radar').getContext('2d');
-  new Chart(ctx,{
-    type:'radar',
-    data:{
-      labels:['Intel. Situationnelle','Intérêt Client','Valorisation Produit','Maîtrise Fondamentaux','Élégance','Personnalité'],
-      datasets:[{
-        data:[72,68,65,78,90,85],
-        backgroundColor:'rgba(112,0,255,0.12)',
-        borderColor:'#7000FF',
-        borderWidth:2,
-        pointBackgroundColor:'#7000FF',
-        pointBorderColor:'#fff',
-        pointBorderWidth:1.5,
-        pointRadius:5,
-      }]
-    },
-    options:{
-      responsive:true,
-      maintainAspectRatio:true,
-      scales:{r:{
-        min:0,max:100,
-        ticks:{display:false,stepSize:25},
-        grid:{color:'rgba(0,19,61,0.1)'},
-        angleLines:{color:'rgba(0,19,61,0.1)'},
-        pointLabels:{
-          font:{family:'Poppins',size:10,weight:'400'},
-          color:'#00133D',
-          padding:12
-        }
-      }},
-      plugins:{legend:{display:false}},
-      layout:{padding:16}
-    }
-  });
-});
+
 
 // Modal
 
