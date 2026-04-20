@@ -89,7 +89,7 @@ footer{background:#00133D;padding:20px 48px;display:flex;justify-content:space-b
 </head>
 <body>
 
-<nav>
+<nav id="nav" class="scrolled">
   <a href="/" class="nav-logo">WONDER</a>
   <div class="nav-links">
     <a href="/">Accueil</a>
@@ -211,6 +211,12 @@ footer{background:#00133D;padding:20px 48px;display:flex;justify-content:space-b
 
 
 <script>
+window.addEventListener('scroll',function(){
+  var n=document.getElementById('nav');
+  n.classList.add('scrolled')
+});
+
+
 
 
 
