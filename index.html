@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WONDER — Formation Excellence de Service, Codes du Luxe & Expérience Client</title>
+<meta name="description" content="WONDER forme et accompagne les équipes en hôtellerie, restauration et retail vers l'excellence de service. Audit, formation immersive et événementiel transformant.">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-family:'Poppins',sans-serif}
+body{overflow-x:hidden;color:#00133D}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:#00133D;padding:0 48px;height:72px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,0.06)}
+.nav-logo{color:#fff;font-size:16px;font-weight:500;letter-spacing:3px;text-decoration:none;font-family:"Poppins",sans-serif}
+.nav-links{display:flex;gap:36px;align-items:center}
+.nav-links a{color:rgba(255,255,255,0.6);text-decoration:none;font-size:11px;font-weight:400;letter-spacing:1.5px;text-transform:uppercase;transition:color 0.2s}
+.nav-links a:hover,.nav-links a.active{color:#fff}
+.nav-cta{background:#7000FF!important;color:#fff!important;padding:10px 22px;border-radius:6px;font-weight:500!important;font-size:11px!important;letter-spacing:1px;text-transform:uppercase!important}
+
+/* HERO */
+.hero{min-height:100vh;background:linear-gradient(135deg,#001066 0%,#001a3d 40%,#2a0a4a 100%);display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 48px 80px}
+.hero-inner{max-width:800px}
+.hero h1{color:#fff;font-size:clamp(28px,4.5vw,58px);font-weight:500;line-height:1.2;letter-spacing:-1px;margin-bottom:20px}
+.hero-sub{color:rgba(255,255,255,0.7);font-size:16px;font-weight:300;margin-bottom:8px}
+.hero-desc{color:rgba(255,255,255,0.5);font-size:14px;font-weight:300;max-width:480px;margin:0 auto 36px;line-height:1.8}
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn-violet{background:#7000FF;color:#fff;padding:14px 30px;border-radius:6px;font-size:13px;font-weight:500;letter-spacing:0.5px;text-decoration:none;transition:opacity 0.2s;cursor:pointer;border:none}
+.btn-violet:hover{opacity:0.88}
+.btn-outline-white{border:1px solid rgba(255,255,255,0.3);color:#fff;padding:14px 30px;border-radius:6px;font-size:13px;font-weight:300;letter-spacing:0.3px;text-decoration:none;transition:background 0.2s}
+.btn-outline-white:hover{background:rgba(255,255,255,0.08)}
+
+/* CONTEXTE */
+.section{padding:80px 48px}
+.section-alt{background:#f9f7f8}
+.container{max-width:1100px;margin:0 auto}
+.section-title{font-size:clamp(22px,3vw,38px);font-weight:500;letter-spacing:-0.5px;color:#00133D}
+.contexte-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;max-width:900px;margin:0 auto}
+.contexte-text .section-title{margin-bottom:32px}
+.contexte-text p{font-size:15px;color:#556;font-weight:300;line-height:1.9;margin-bottom:16px}
+.contexte-text strong{color:#00133D;font-weight:500}
+.contexte-img{border-radius:12px;overflow:hidden;aspect-ratio:4/5}
+.contexte-img img{width:100%;height:100%;object-fit:cover}
+
+/* TRUST */
+.trust-item{background:#f5f3f7;border:1px solid #e8e4eb;border-radius:20px;padding:6px 16px;font-size:11px;color:#00133D;font-weight:400;letter-spacing:0.5px;white-space:nowrap}
+.trust{padding:28px 48px;border-top:1px solid #eee;border-bottom:1px solid #eee;display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap;background:#fff}
+
+.trust-logo:hover{opacity:1;filter:grayscale(0%)}
+
+/* ÉTAPES */
+.steps-wrap{max-width:700px;margin:0 auto}
+.step{display:grid;grid-template-columns:100px 1fr;gap:24px;margin-bottom:56px}
+.step-num{font-size:48px;font-weight:600;color:rgba(112,0,255,0.12);line-height:1}
+.step-tag{font-size:10px;text-transform:uppercase;letter-spacing:2px;color:#7000FF;font-weight:500;margin-bottom:6px}
+.step-title{font-size:18px;font-weight:500;color:#00133D;margin-bottom:4px}
+.step-italic{font-size:12px;color:#888;font-style:italic;margin-bottom:12px}
+.step-body{font-size:14px;color:#556;font-weight:300;line-height:1.8}
+
+/* ACADEMY */
+.section-header{text-align:center;margin-bottom:48px}
+.section-header .section-title{margin-bottom:12px}
+.section-header p{font-size:14px;color:#888;font-weight:300;max-width:480px;margin:0 auto}
+.modules-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.module-card{background:#fff;border:1px solid #e8e4eb;border-radius:10px;padding:20px;transition:border-color 0.2s,box-shadow 0.2s;cursor:pointer;text-decoration:none;display:flex;flex-direction:column}
+.module-card:hover{border-color:rgba(112,0,255,0.3);box-shadow:0 4px 20px rgba(112,0,255,0.08)}
+.module-card h4{font-size:13px;font-weight:500;color:#00133D;margin-bottom:8px;line-height:1.4}
+.module-card p{font-size:12px;color:#888;font-weight:300;line-height:1.6;flex:1}
+.module-dur{font-size:11px;color:#bbb;margin-top:12px}
+.btn-navy{display:inline-flex;align-items:center;gap:8px;background:#00133D;color:#fff;padding:14px 30px;border-radius:6px;font-size:13px;font-weight:500;letter-spacing:0.3px;text-decoration:none;transition:opacity 0.2s;margin-top:36px}
+.btn-navy:hover{opacity:0.88}
+.center{text-align:center}
+
+/* EVENTS */
+.events-list{display:flex;flex-direction:column;gap:12px}
+.event-card{background:#00133D;border-radius:10px;padding:28px 32px;text-decoration:none;display:block;transition:opacity 0.2s}
+.event-card:hover{opacity:0.9}
+.event-type{font-size:10px;text-transform:uppercase;letter-spacing:2px;color:#7000FF;font-weight:500;margin-bottom:8px}
+.event-title{font-size:16px;font-weight:500;color:#fff;margin-bottom:8px}
+.event-desc{font-size:13px;color:rgba(255,255,255,0.6);font-weight:300;line-height:1.7}
+.btn-outline-navy{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(0,19,61,0.2);color:#00133D;padding:14px 30px;border-radius:6px;font-size:13px;font-weight:500;text-decoration:none;transition:background 0.2s;margin-top:36px}
+.btn-outline-navy:hover{background:rgba(0,19,61,0.04)}
+
+/* CAS */
+.cas-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.cas-card{background:#fff;border:1px solid #e8e4eb;border-radius:10px;overflow:hidden;transition:border-color 0.2s,box-shadow 0.2s}
+.cas-card:hover{border-color:rgba(112,0,255,0.3);box-shadow:0 4px 20px rgba(112,0,255,0.08)}
+.cas-photo{height:180px;overflow:hidden;position:relative}
+.cas-photo img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s}
+.cas-card:hover .cas-photo img{transform:scale(1.05)}
+.cas-photo-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,19,61,0.8),transparent)}
+.cas-photo-title{position:absolute;bottom:14px;left:16px;right:16px;font-size:13px;font-weight:500;color:#fff}
+.cas-body{padding:16px}
+.cas-body p{font-size:12px;color:#888;font-weight:300;line-height:1.6;margin-bottom:12px}
+.cas-tag{font-size:9px;text-transform:uppercase;letter-spacing:1.5px;color:#7000FF;font-weight:500;margin-bottom:6px}
+.cas-chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:11px;font-weight:500;color:#7000FF;background:rgba(112,0,255,0.08);padding:4px 10px;border-radius:20px}
+
+/* CTA */
+.cta-section{background:#f9f7f8;padding:80px 48px;text-align:center}
+.cta-section .section-title{margin-bottom:12px}
+.cta-section p{font-size:14px;color:#888;font-weight:300;margin-bottom:28px}
+
+/* FOOTER */
+footer{background:#00133D;padding:28px 48px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer-logo img{height:20px;filter:brightness(0) invert(1)}
+.footer-links{display:flex;gap:20px}
+.footer-links a{color:rgba(255,255,255,0.4);font-size:11px;text-decoration:none;transition:color 0.2s}
+.footer-links a:hover{color:rgba(255,255,255,0.7)}
+
+/* MODALE */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:1000;align-items:center;justify-content:center;padding:20px}
+.modal-overlay.active{display:flex}
+.modal-box{background:#00133D;border-radius:16px;width:100%;max-width:900px;max-height:90vh;overflow:hidden;position:relative}
+.modal-close{position:absolute;top:16px;right:16px;background:rgba(255,255,255,0.1);border:none;color:#fff;width:36px;height:36px;border-radius:50%;font-size:18px;cursor:pointer;z-index:10;display:flex;align-items:center;justify-content:center;transition:background 0.2s}
+.modal-close:hover{background:rgba(255,255,255,0.2)}
+.modal-box iframe{width:100%;height:80vh;border:none;display:block}
+
+/* ANIMATIONS */
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity 0.7s ease,transform 0.7s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+@media(max-width:768px){
+  nav{padding:0 20px}
+  .nav-links{display:none}
+  .hero{padding:100px 24px 60px}
+  .section{padding:56px 24px}
+  .contexte-grid{grid-template-columns:1fr;gap:32px}
+  .modules-grid{grid-template-columns:1fr}
+  .cas-grid{grid-template-columns:1fr}
+  .trust-item{background:#f5f3f7;border:1px solid #e8e4eb;border-radius:20px;padding:6px 16px;font-size:11px;color:#00133D;font-weight:400;letter-spacing:0.5px;white-space:nowrap}
+.trust{padding:20px 24px}
+  footer{padding:24px;flex-direction:column;text-align:center}
+  .step{grid-template-columns:60px 1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="/" class="nav-logo">WONDER</a>
+  <div class="nav-links">
+    <a href="/">Accueil</a>
+    <a href="/wonder-x-ray">X-Ray</a>
+    <a href="/academy">Academy</a>
+    <a href="/events">Events</a>
+    <a href="/a-propos">À propos</a>
+    <a href="#" class="nav-cta" onclick="openModal();return false;">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <h1>Votre expérience client est-elle<br>impeccable ou inoubliable&nbsp;?</h1>
+    <p class="hero-sub">Formation excellence de service</p>
+    <p class="hero-desc">WONDER audite, forme et accompagne les équipes pour qu'elles fassent briller votre marque ou votre commerce.</p>
+    <div class="hero-btns">
+      <a href="#demarche" class="btn-violet">Découvrir notre démarche</a>
+      <a href="/academy" class="btn-outline-white">Explorer l'Academy</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTEXTE -->
+<section class="section fade-up">
+  <div class="container">
+    <div class="contexte-grid">
+      <div class="contexte-text">
+        <h2 class="section-title">Le modèle a changé.</h2>
+        <p>Le <strong>produit</strong> n'est plus un avantage concurrentiel.<br>Il est devenu un <strong>prérequis</strong>.</p>
+        <p>Les <strong>standards</strong> ne suffisent plus.<br>Ils ont créé une <strong>illusion de maîtrise</strong>.</p>
+        <p>Les attentes clients ont évolué : plus de fluidité, plus de personnalité, plus d'intensité relationnelle.</p>
+        <p><strong>La fidélisation repose sur la capacité des équipes à impressionner, surprendre et donner du plaisir.</strong></p>
+      </div>
+      <div class="contexte-img">
+        <img src="" data-img="IMG_1" alt="Formation excellence de service en hôtellerie">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<div id="trust-logos" style="padding:32px 48px;border-top:1px solid #eee;border-bottom:1px solid #eee;display:flex;gap:28px;align-items:center;justify-content:center;flex-wrap:wrap;background:#fff"></div>
+<script>
+(function(){
+  var s=document.createElement('script');
+  s.src='/logos.js';
+  s.onload=function(){
+    var c=document.getElementById('trust-logos');
+    if(!c||!window.WONDER_LOGOS)return;
+    Object.values(window.WONDER_LOGOS).forEach(function(l){
+      if(l.src){
+        var img=document.createElement('img');
+        img.src=l.src;img.alt=l.alt;
+        img.style.cssText='height:36px;max-width:130px;object-fit:contain;opacity:0.6;filter:grayscale(20%);transition:opacity 0.2s;cursor:default';
+        img.onmouseover=function(){this.style.opacity=1};
+        img.onmouseout=function(){this.style.opacity=0.6};
+        c.appendChild(img);
+      } else {
+        var span=document.createElement('span');
+        span.textContent=l.alt;
+        span.style.cssText='font-size:12px;color:#999;font-weight:400';
+        c.appendChild(span);
+      }
+    });
+  };
+  document.head.appendChild(s);
+})();
+</script>
+
+<!-- DÉMARCHE -->
+<section class="section" id="demarche">
+  <div class="container">
+    <div class="section-header fade-up">
+      <h2 class="section-title">La transformation en trois étapes.</h2>
+    </div>
+    <div class="steps-wrap">
+      <div class="step fade-up">
+        <div class="step-num">01</div>
+        <div>
+          <p class="step-tag">L'audit qui donne envie d'être meilleur</p>
+          <p class="step-title">WONDER X-Ray</p>
+          <p class="step-italic">Prêt à évaluer et redéfinir votre expérience client ?</p>
+          <p class="step-body">Le WONDER X-Ray est un audit premium du service client. Il ne se limite pas aux standards. Il analyse l'expérience vécue et le souvenir laissé par la marque — et surtout les équipes. Notre approche évalue ce qui fait vraiment la différence : <strong style="color:#00133D;font-weight:500">l'humain</strong>, la <strong style="color:#00133D;font-weight:500">qualité de la relation</strong> et l'<strong style="color:#00133D;font-weight:500">émotion</strong> générée à chaque interaction.</p>
+        </div>
+      </div>
+      <div class="step fade-up">
+        <div class="step-num">02</div>
+        <div>
+          <p class="step-tag">La formation qui booste le niveau des équipes</p>
+          <p class="step-title">WONDER Academy & Events</p>
+          <p class="step-italic">Prêt à révéler vos héros de l'expérience client ?</p>
+          <p class="step-body">Certaines équipes brillent déjà. D'autres doivent retrouver leurs fondamentaux. La WONDER Academy accompagne chaque niveau vers une même ambition. Modules de formation ciblés, séminaires, teambuilding et escape game inoubliables. Chaque intervention s'inscrit dans un scénario global cohérent avec vos objectifs.</p>
+        </div>
+      </div>
+      <div class="step fade-up">
+        <div class="step-num">03</div>
+        <div>
+          <p class="step-tag">L'ancrage des bonnes pratiques</p>
+          <p class="step-title">Accompagnement & Suivi</p>
+          <p class="step-italic">Prêt à installer durablement les transformations ?</p>
+          <p class="step-body">Sans ancrage, la dynamique retombe — toujours. Ne gaspillez plus votre budget formation. Nous accompagnons les managers et les équipes pour pérenniser les pratiques, ajuster les postures et maintenir le niveau d'excellence dans la durée.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACADEMY -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header fade-up">
+      <h2 class="section-title">WONDER Academy</h2>
+      <p>Des modules immersifs conçus pour transformer durablement les équipes.</p>
+    </div>
+    <div class="modules-grid">
+      <a href="/academy?module=fondamentaux-experience" class="module-card fade-up">
+        <h4>Fondamentaux de l'Expérience Client</h4>
+        <p>Adopter une posture relationnelle cohérente avec la promesse de la marque, au-delà du simple respect des standards opérationnels.</p>
+        <span class="module-dur">3h30</span>
+      </a>
+      <a href="/academy?module=elegance-image" class="module-card fade-up">
+        <h4>Élégance & Image Professionnelle</h4>
+        <p>Aligner apparence, comportement et intelligence situationnelle pour renforcer l'image de la marque.</p>
+        <span class="module-dur">3h30</span>
+      </a>
+      <a href="/academy?module=gestion-insatisfaction" class="module-card fade-up">
+        <h4>Gestion de l'Insatisfaction — Reconquête</h4>
+        <p>Transformer la gestion de crise en levier de fidélisation.</p>
+        <span class="module-dur">3h30</span>
+      </a>
+      <a href="/academy" class="module-card fade-up">
+        <h4>Maîtrise Opérationnelle Métier</h4>
+        <p>Structurer et perfectionner les gestes clés de l'accueil, de la restauration et de la vente pour garantir un niveau d'excellence constant.</p>
+        <span class="module-dur">1 jour</span>
+      </a>
+      <a href="/academy?module=management-excellence" class="module-card fade-up">
+        <h4>Manager l'Excellence</h4>
+        <p>Faire du management un levier de performance dans un environnement où chaque interaction fait la différence.</p>
+        <span class="module-dur">1 jour</span>
+      </a>
+      <a href="/academy?module=dialogue-social-irp" class="module-card fade-up">
+        <h4>Manager le Dialogue Social et les IRP</h4>
+        <p>Maîtriser le cadre légal et transformer les relations sociales en levier stratégique.</p>
+        <span class="module-dur">1 jour</span>
+      </a>
+    </div>
+    <div class="center fade-up">
+      <a href="/academy" class="btn-navy">Explorer tous les modules →</a>
+    </div>
+  </div>
+</section>
+
+<!-- EVENTS -->
+<section class="section">
+  <div class="container">
+    <div class="section-header fade-up">
+      <h2 class="section-title">WONDER Events</h2>
+      <p>3 formats immersifs et sur mesure pour vos événements.</p>
+    </div>
+    <div class="events-list">
+      <a href="/events#conference-experience-client" class="event-card fade-up">
+        <p class="event-type">Conférence</p>
+        <p class="event-title">Expérience Client</p>
+        <p class="event-desc">En 2 heures, un expert décrypte ce que les clients attendent vraiment : fluidité, personnalité, justesse. Découvrez pourquoi certaines marques marquent durablement.</p>
+      </a>
+      <a href="/events#seminaire-ambition-entreprise" class="event-card fade-up">
+        <p class="event-type">Séminaire</p>
+        <p class="event-title">Ambition Entreprise</p>
+        <p class="event-desc">Un séminaire qui transforme la stratégie en aventure collective en faisant émerger une ambition claire et désirable, inspirée des grandes épopées : mission forte, rôle incarné, défi à relever et cap partagé.</p>
+      </a>
+      <a href="/events#escape-game" class="event-card fade-up">
+        <p class="event-type">Team Building</p>
+        <p class="event-title">Escape Game Hôtel / Restaurant / Retail / Management</p>
+        <p class="event-desc">Des enquêtes immersives où les équipes enchaînent les épreuves pour "sauver leur entreprise". Cohésion, connaissance produit et esprit d'équipe.</p>
+      </a>
+    </div>
+    <div class="center fade-up">
+      <a href="/events" class="btn-outline-navy">Découvrir les Events →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CAS CONCRETS -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header fade-up">
+      <h2 class="section-title">Cas concrets</h2>
+    </div>
+    <div class="cas-grid">
+      <div class="cas-card fade-up">
+        <div class="cas-photo">
+          <img src="" data-img="IMG_2" alt="Retail et commerces">
+          <div class="cas-photo-overlay"></div>
+          <p class="cas-photo-title">Retail & commerces</p>
+        </div>
+        <div class="cas-body">
+          <p>Transformer une force de vente en ambassadeurs de marque, de l'approche transactionnelle à l'expérience relationnelle premium.</p>
+          <p class="cas-tag">Objectifs</p>
+          <div class="cas-chips">
+            <span class="chip">Panier moyen +25%</span>
+            <span class="chip">Fidélisation +30%</span>
+            <span class="chip">NPS +22 points</span>
+          </div>
+        </div>
+      </div>
+      <div class="cas-card fade-up">
+        <div class="cas-photo">
+          <img src="" data-img="IMG_3" alt="Groupes hôteliers Paris">
+          <div class="cas-photo-overlay"></div>
+          <p class="cas-photo-title">Groupes Hôteliers — Paris</p>
+        </div>
+        <div class="cas-body">
+          <p>Un palace parisien confronté à un turnover élevé et une perte de cohérence dans l'expérience client.</p>
+          <p class="cas-tag">Objectifs</p>
+          <div class="cas-chips">
+            <span class="chip">Satisfaction +18%</span>
+            <span class="chip">Turnover -35%</span>
+            <span class="chip">Engagement +42%</span>
+          </div>
+        </div>
+      </div>
+      <div class="cas-card fade-up">
+        <div class="cas-photo">
+          <img src="" data-img="IMG_4" alt="Resorts saisonniers">
+          <div class="cas-photo-overlay"></div>
+          <p class="cas-photo-title">Resorts saisonniers</p>
+        </div>
+        <div class="cas-body">
+          <p>Ouverture d'un resort avec 120 nouveaux collaborateurs à former à 1 semaine de l'ouverture.</p>
+          <p class="cas-tag">Objectifs</p>
+          <div class="cas-chips">
+            <span class="chip">Note 9.2/10</span>
+            <span class="chip">Zéro turnover 6 mois</span>
+            <span class="chip">TripAdvisor Top 3</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-section fade-up">
+  <div class="container">
+    <h2 class="section-title">Passons à l'action.</h2>
+    <p>Échangeons sur vos enjeux et construisons ensemble vos transformations.</p>
+    <button class="btn-violet" onclick="openModal()">Prendre rendez-vous →</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:#00133D;padding:20px 48px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px">
+  <a href="/" style="color:#fff;font-size:16px;font-weight:500;letter-spacing:3px;text-decoration:none;font-family:'Poppins',sans-serif">WONDER</a>
+  <div style="display:flex;flex-direction:column;gap:3px">
+    <span style="color:rgba(255,255,255,0.45);font-size:11px;font-weight:300">© 2026 WONDER. Tous droits réservés.</span>
+    <a href="mailto:contact@wonderxperience.com" style="color:rgba(255,255,255,0.45);font-size:11px;font-weight:300;text-decoration:none">contact@wonderxperience.com</a>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:5px">
+    <a href="/mentions-legales" style="color:rgba(255,255,255,0.45);font-size:11px;text-decoration:none;white-space:nowrap">Mentions légales</a>
+    <a href="/politique-de-confidentialite" style="color:rgba(255,255,255,0.45);font-size:11px;text-decoration:none;white-space:nowrap">Politique de confidentialité</a>
+  </div>
+  <div style="background:#fff;border-radius:4px;padding:8px 6px;display:flex;align-items:center">
+    <img src="" data-img="IMG_5" alt="Qualiopi" style="height:60px;width:auto;display:block;transform:rotate(90deg)">
+  </div>
+</footer>
+
+<!-- MODALE FILLOUT -->
+<div class="modal-overlay" id="modal" onclick="closeModalOnBg(event)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <iframe src="https://wonderxperience.fillout.com/rencontre-stephane-lambin" title="Prendre rendez-vous avec Stéphane Lambin"></iframe>
+  </div>
+</div>
+
+<script>
+// Nav — navy fixe, pas de changement au scroll
+
+function openModal(){document.getElementById('modal').classList.add('active');document.body.style.overflow='hidden'}
+function closeModal(){document.getElementById('modal').classList.remove('active');document.body.style.overflow=''}
+function closeModalOnBg(e){if(e.target===document.getElementById('modal'))closeModal()}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal()})
+
+const obs=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})
+},{threshold:0.12})
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el))
+</script>
+<script src="/images.js"></script>
+<script>
+document.querySelectorAll('[data-img]').forEach(function(el){
+  var key=el.getAttribute('data-img');
+  if(window.WONDER_IMGS&&window.WONDER_IMGS[key]) el.src=window.WONDER_IMGS[key];
+});
+</script>
+</body>
+</html>
