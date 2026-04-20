@@ -104,11 +104,11 @@ footer{background:#00133D;padding:20px 48px;display:flex;justify-content:space-b
 .f-qualiopi{height:28px;width:auto;display:block}
 
 /* FILLOUT MODAL */
-.fillout-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.72);z-index:300;align-items:center;justify-content:center;padding:20px}
-.fillout-overlay.active{display:flex}
-.fillout-box{background:#00133D;border-radius:16px;width:100%;max-width:900px;max-height:90vh;overflow:hidden;position:relative}
-.fillout-close{position:absolute;top:14px;right:14px;background:rgba(255,255,255,0.1);border:none;color:#fff;width:34px;height:34px;border-radius:50%;font-size:16px;cursor:pointer;z-index:10;display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif}
-.fillout-box iframe{width:100%;height:80vh;border:none;display:block}
+
+
+
+
+
 
 /* HIDDEN */
 .module-item{display:flex}
@@ -138,7 +138,7 @@ footer{background:#00133D;padding:20px 48px;display:flex;justify-content:space-b
     <a href="/academy" class="active">Academy</a>
     <a href="/events">Events</a>
     <a href="/a-propos">À propos</a>
-    <a href="#" class="nav-cta" onclick="openFillout();return false;">Contact</a>
+    <a href="#" class="nav-cta" href="https://wonderxperience.fillout.com/rencontre-stephane-lambin" target="_blank" rel="noopener">Contact</a>
   </div>
 </nav>
 
@@ -177,7 +177,7 @@ footer{background:#00133D;padding:20px 48px;display:flex;justify-content:space-b
 <section class="cta-wrap fade-up">
   <h2>Passons à l'action.</h2>
   <p>Échangeons sur vos enjeux et construisons ensemble vos transformations.</p>
-  <button class="btn-v" onclick="openFillout()">Prendre rendez-vous →</button>
+  <button class="btn-v" href="https://wonderxperience.fillout.com/rencontre-stephane-lambin" target="_blank" rel="noopener">Prendre rendez-vous →</button>
 </section>
 
 <!-- FOOTER -->
@@ -202,12 +202,7 @@ footer{background:#00133D;padding:20px 48px;display:flex;justify-content:space-b
 </div>
 
 <!-- MODAL FILLOUT -->
-<div class="fillout-overlay" id="fillout" onclick="if(event.target===this)closeFillout()">
-  <div class="fillout-box">
-    <button class="fillout-close" onclick="closeFillout()">✕</button>
-    <iframe src="https://wonderxperience.fillout.com/rencontre-stephane-lambin" title="Prendre rendez-vous"></iframe>
-  </div>
-</div>
+
 
 <script>
 // Couleurs par catégorie
@@ -340,7 +335,7 @@ function openModal(mod) {
       </div>
       ${relatedHTML ? `<hr class="modal-divider"><p class="modal-section-label">Modules associés</p><div class="modal-related">${relatedHTML}</div>` : ''}
       <div class="modal-cta">
-        <button class="btn-v" onclick="closeModal();openFillout()">Nous contacter pour ce module →</button>
+        <button class="btn-v" onclick="closeModal()" href="https://wonderxperience.fillout.com/rencontre-stephane-lambin" target="_blank" rel="noopener">Nous contacter pour ce module →</button>
       </div>
     </div>`;
   document.getElementById('modal').classList.add('active');
@@ -353,8 +348,6 @@ function closeModal() {
 }
 
 // Fillout
-function openFillout(){document.getElementById('fillout').classList.add('active');document.body.style.overflow='hidden'}
-function closeFillout(){document.getElementById('fillout').classList.remove('active');document.body.style.overflow=''}
 
 // Nav scroll
 window.addEventListener('scroll',function(){
@@ -362,10 +355,7 @@ window.addEventListener('scroll',function(){
   if(window.scrollY>80){n.classList.add('scrolled')}else{n.classList.remove('scrolled')}
 });
 
-// Escape
-document.addEventListener('keydown',e=>{
-  if(e.key==='Escape'){closeModal();closeFillout()}
-});
+
 
 // Fade-up
 const obs=new IntersectionObserver(entries=>{
