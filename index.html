@@ -12,7 +12,8 @@ html{scroll-behavior:smooth;font-family:'Poppins',sans-serif}
 body{overflow-x:hidden;color:#00133D}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:#00133D;padding:0 48px;height:72px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,0.06)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:transparent;padding:0 48px;height:72px;display:flex;align-items:center;justify-content:space-between;transition:background 0.3s}
+nav.scrolled{background:#00133D;border-bottom:1px solid rgba(255,255,255,0.06)}
 .nav-logo{color:#fff;font-size:16px;font-weight:500;letter-spacing:3px;text-decoration:none;font-family:"Poppins",sans-serif}
 .nav-links{display:flex;gap:36px;align-items:center}
 .nav-links a{color:rgba(255,255,255,0.6);text-decoration:none;font-size:11px;font-weight:400;letter-spacing:1.5px;text-transform:uppercase;transition:color 0.2s}
@@ -33,7 +34,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:#00133D;padding:0
 
 /* CONTEXTE */
 .section{padding:80px 48px}
-.section-alt{background:#f9f7f8}
+.section-alt{background:linear-gradient(to bottom,#fff 0%,#f5f0f2 100%)}
 .container{max-width:1100px;margin:0 auto}
 .section-title{font-size:clamp(22px,3vw,38px);font-weight:500;letter-spacing:-0.5px;color:#00133D}
 .contexte-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;max-width:900px;margin:0 auto}
@@ -98,7 +99,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:#00133D;padding:0
 .chip{font-size:11px;font-weight:500;color:#7000FF;background:rgba(112,0,255,0.08);padding:4px 10px;border-radius:20px}
 
 /* CTA */
-.cta-section{background:#f9f7f8;padding:80px 48px;text-align:center}
+.cta-section{background:linear-gradient(to bottom,#fff 0%,#f5f0f2 100%);padding:80px 48px;text-align:center}
 .cta-section .section-title{margin-bottom:12px}
 .cta-section p{font-size:14px;color:#888;font-weight:300;margin-bottom:28px}
 
@@ -165,7 +166,7 @@ footer{background:#00133D;padding:28px 48px;display:flex;justify-content:space-b
 </section>
 
 <!-- CONTEXTE -->
-<section class="section fade-up">
+<section class="section section-alt fade-up">
   <div class="container">
     <div class="contexte-grid">
       <div class="contexte-text">
