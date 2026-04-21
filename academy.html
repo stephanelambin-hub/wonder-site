@@ -122,9 +122,11 @@ nav.scrolled{background:#00133D;border-bottom:1px solid rgba(255,255,255,0.06)}
 .module-card:hover .module-more{opacity:1}
 
 /* MODAL */
-
-
-
+.modal-overlay{position:fixed;inset:0;background:rgba(0,19,61,0.55);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);z-index:200;display:none;align-items:flex-start;justify-content:center;padding:48px 24px;overflow-y:auto}
+.modal-overlay.active{display:flex}
+.modal-box{background:#fff;border-radius:14px;max-width:720px;width:100%;margin:auto;box-shadow:0 20px 60px rgba(0,0,0,0.3);position:relative;overflow:hidden;animation:modalIn 0.3s ease}
+@keyframes modalIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.modal-close{position:absolute;top:16px;right:16px;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.12);border:0;color:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s;z-index:2;font-family:inherit}
 .modal-hero{background:#00133D;padding:40px 48px;border-radius:14px 14px 0 0}
 .modal-cat{font-size:10px;text-transform:uppercase;letter-spacing:2px;color:#7000FF;font-weight:500;margin-bottom:8px}
 .modal-title{font-size:clamp(22px,3vw,32px);font-weight:500;color:#fff;margin-bottom:8px;line-height:1.2}
@@ -212,8 +214,15 @@ body.menu-open{overflow:hidden}
 @media(max-width:600px){
   .hero,.modules-section,.citation,.cta-wrap,.filters{padding-left:20px;padding-right:20px}
   .modules-grid{grid-template-columns:1fr;gap:16px}
-  .modal-hero,.modal-body{padding:24px}
+  .modal-overlay{padding:16px 12px}
+  .modal-box{border-radius:12px}
+  .modal-hero{padding:28px 22px 24px}
+  .modal-title{font-size:20px}
+  .modal-impact{font-size:13px}
+  .modal-meta{flex-wrap:wrap;gap:10px 18px}
+  .modal-body{padding:24px 22px}
   .modal-related{grid-template-columns:1fr}
+  .modal-close{top:12px;right:12px;width:32px;height:32px;font-size:14px}
   .btn-v{width:100%;justify-content:center;max-width:320px}
   footer{padding:22px 20px;flex-direction:column;text-align:center}
 }
