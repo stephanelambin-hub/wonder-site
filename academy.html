@@ -6,6 +6,70 @@
 <title>WONDER Academy — Formation Codes du Luxe, Hôtellerie & Excellence de Service</title>
 <meta name="description" content="Modules de formation en codes du luxe, hôtellerie, restauration, élégance professionnelle et excellence de service. Organisme certifié Qualiopi.">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="canonical" href="https://wonderxperience.com/academy">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://wonderxperience.com/academy">
+<meta property="og:title" content="WONDER Academy — Formation Codes du Luxe, Hôtellerie et Excellence de Service">
+<meta property="og:description" content="Modules de formation en codes du luxe, hôtellerie, restauration, élégance professionnelle et excellence de service. Organisme certifié Qualiopi.">
+<meta property="og:image" content="https://wonderxperience.com/assets/og-image.jpg">
+<meta property="og:site_name" content="WONDER">
+<meta property="og:locale" content="fr_FR">
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "WONDER Academy — Catalogue de formations",
+  "description": "Modules de formation en codes du luxe, hôtellerie, restauration, élégance professionnelle et excellence de service.",
+  "url": "https://wonderxperience.com/academy",
+  "provider": {
+    "@type": "Organization",
+    "name": "WONDER",
+    "url": "https://wonderxperience.com"
+  },
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "item": {
+        "@type": "Course",
+        "name": "Savoir Diriger",
+        "description": "Ajuster sa posture pour transformer la dynamique d'équipe.",
+        "provider": { "@type": "Organization", "name": "WONDER" },
+        "timeRequired": "P1D",
+        "educationalLevel": "Managers"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "item": {
+        "@type": "Course",
+        "name": "Fondamentaux de l'Expérience Client",
+        "description": "Comprendre que l'expérience client repose sur une posture, pas uniquement sur des standards.",
+        "provider": { "@type": "Organization", "name": "WONDER" },
+        "timeRequired": "PT3H30M",
+        "educationalLevel": "Équipes opérationnelles"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "item": {
+        "@type": "Course",
+        "name": "Élégance et Image Professionnelle",
+        "description": "Aligner apparence, comportement et intelligence situationnelle pour renforcer l'image de la marque.",
+        "provider": { "@type": "Organization", "name": "WONDER" },
+        "timeRequired": "PT3H30M",
+        "educationalLevel": "Équipes opérationnelles"
+      }
+    }
+  ]
+}
+</script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;font-family:'Poppins',sans-serif}
@@ -138,7 +202,7 @@ footer{background:#00133D;padding:20px 48px;display:flex;justify-content:space-b
     <a href="/academy" class="active">Academy</a>
     <a href="/events">Events</a>
     <a href="/a-propos">À propos</a>
-    <a href="#" class="nav-cta" href="https://wonderxperience.fillout.com/rencontre-stephane-lambin" target="_blank" rel="noopener">Contact</a>
+    <a href="https://wonderxperience.fillout.com/rencontre-stephane-lambin" class="nav-cta" target="_blank" rel="noopener">Contact</a>
   </div>
 </nav>
 
@@ -177,7 +241,7 @@ footer{background:#00133D;padding:20px 48px;display:flex;justify-content:space-b
 <section class="cta-wrap fade-up">
   <h2>Passons à l'action.</h2>
   <p>Échangeons sur vos enjeux et construisons ensemble vos transformations.</p>
-  <a class="btn-v" href="https://wonderxperience.fillout.com/rencontre-stephane-lambin" target="_blank" rel="noopener"href="https://wonderxperience.fillout.com/rencontre-stephane-lambin" target="_blank" rel="noopener">Prendre rendez-vous →</a>
+  <a class="btn-v" href="https://wonderxperience.fillout.com/rencontre-stephane-lambin" target="_blank" rel="noopener">Prendre rendez-vous →</a>
 </section>
 
 <!-- FOOTER -->
@@ -335,7 +399,7 @@ function openModal(mod) {
       </div>
       ${relatedHTML ? `<hr class="modal-divider"><p class="modal-section-label">Modules associés</p><div class="modal-related">${relatedHTML}</div>` : ''}
       <div class="modal-cta">
-        <button class="btn-v" onclick="closeModal()" href="https://wonderxperience.fillout.com/rencontre-stephane-lambin" target="_blank" rel="noopener">Nous contacter pour ce module →</button>
+        <a class="btn-v" href="https://wonderxperience.fillout.com/rencontre-stephane-lambin" target="_blank" rel="noopener">Nous contacter pour ce module →</a>
       </div>
     </div>`;
   document.getElementById('modal').classList.add('active');

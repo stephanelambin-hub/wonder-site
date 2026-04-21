@@ -6,6 +6,37 @@
 <title>Contact WONDER — Formation Excellence de Service & Codes du Luxe</title>
 <meta name="description" content="Contactez WONDER pour vos projets de formation en excellence de service, codes du luxe, hôtellerie et restauration.">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="canonical" href="https://wonderxperience.com/contact">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://wonderxperience.com/contact">
+<meta property="og:title" content="Contact WONDER — Formation Excellence de Service et Codes du Luxe">
+<meta property="og:description" content="Contactez WONDER pour vos projets de formation en excellence de service, codes du luxe, hôtellerie et restauration.">
+<meta property="og:image" content="https://wonderxperience.com/assets/og-image.jpg">
+<meta property="og:site_name" content="WONDER">
+<meta property="og:locale" content="fr_FR">
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Contact WONDER",
+  "description": "Contactez WONDER pour vos projets de formation en excellence de service, codes du luxe, hôtellerie et restauration.",
+  "url": "https://wonderxperience.com/contact",
+  "publisher": {
+    "@type": "Organization",
+    "name": "WONDER",
+    "url": "https://wonderxperience.com",
+    "email": "contact@wonderxperience.com",
+    "founder": {
+      "@type": "Person",
+      "name": "Stéphane Lambin"
+    }
+  }
+}
+</script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;font-family:'Poppins',sans-serif}
@@ -89,7 +120,7 @@ footer{background:#00133D;padding:20px 48px;display:flex;justify-content:space-b
 </head>
 <body>
 
-<nav id="nav" class="scrolled">
+<nav id="nav">
   <a href="/" class="nav-logo">WONDER</a>
   <div class="nav-links">
     <a href="/">Accueil</a>
@@ -213,7 +244,7 @@ footer{background:#00133D;padding:20px 48px;display:flex;justify-content:space-b
 <script>
 window.addEventListener('scroll',function(){
   var n=document.getElementById('nav');
-  n.classList.add('scrolled')
+  if(window.scrollY>80){n.classList.add('scrolled')}else{n.classList.remove('scrolled')}
 });
 
 
