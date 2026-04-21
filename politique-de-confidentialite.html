@@ -92,8 +92,27 @@ footer{background:#00133D;padding:20px 48px;display:flex;justify-content:space-b
 .f-qualiopi-wrap{background:#fff;border-radius:4px;padding:4px 8px;line-height:0}
 .f-qualiopi{height:28px;width:auto;display:block}
 
+/* BURGER */
+.nav-burger{display:none;background:transparent;border:0;padding:10px;cursor:pointer;margin:0;position:relative;z-index:1}
+.nav-burger-line{display:block;width:24px;height:2px;background:#fff;margin:5px 0;transition:transform 0.3s,opacity 0.3s;border-radius:2px}
+.nav-burger.open .nav-burger-line:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-burger.open .nav-burger-line:nth-child(2){opacity:0}
+.nav-burger.open .nav-burger-line:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{position:fixed;top:0;right:0;bottom:0;width:100%;max-width:320px;background:#00133D;z-index:98;padding:96px 28px 32px;transform:translateX(100%);transition:transform 0.35s ease;display:flex;flex-direction:column;gap:2px;overflow-y:auto;box-shadow:-8px 0 28px rgba(0,0,0,0.25)}
+.mobile-menu.open{transform:translateX(0)}
+.mobile-menu a{color:rgba(255,255,255,0.75);text-decoration:none;font-size:13px;font-weight:400;letter-spacing:1.5px;text-transform:uppercase;padding:16px 4px;border-bottom:1px solid rgba(255,255,255,0.08);transition:color 0.2s}
+.mobile-menu a:hover,.mobile-menu a.active{color:#fff}
+.mobile-menu a.nav-cta{background:#7000FF!important;color:#fff!important;padding:14px 22px!important;border-radius:6px!important;text-align:center;border-bottom:0;margin-top:16px;font-size:12px!important;letter-spacing:1px!important}
+.mobile-backdrop{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:90;opacity:0;pointer-events:none;transition:opacity 0.3s}
+.mobile-backdrop.open{opacity:1;pointer-events:auto}
+body.menu-open{overflow:hidden}
+
+@media(max-width:768px){
+  nav{padding:0 20px;background:#00133D}
+  .nav-burger{display:block}
+  .nav-links{display:none}
+}
 @media(max-width:600px){
-  nav{padding:0 20px}.nav-links{display:none}
   .page{padding:100px 24px 60px}
   footer{padding:22px 24px;flex-direction:column;text-align:center}
 }
@@ -111,7 +130,21 @@ footer{background:#00133D;padding:20px 48px;display:flex;justify-content:space-b
     <a href="/a-propos">À propos</a>
     <a href="/contact" class="nav-cta">Contact</a>
   </div>
+  <button class="nav-burger" aria-label="Ouvrir le menu" aria-expanded="false" onclick="toggleMenu()">
+    <span class="nav-burger-line"></span>
+    <span class="nav-burger-line"></span>
+    <span class="nav-burger-line"></span>
+  </button>
 </nav>
+<div class="mobile-backdrop" onclick="toggleMenu()"></div>
+<aside class="mobile-menu" id="mobileMenu">
+  <a href="/" onclick="toggleMenu()">Accueil</a>
+  <a href="/wonder-x-ray" onclick="toggleMenu()">X-Ray</a>
+  <a href="/academy" onclick="toggleMenu()">Academy</a>
+  <a href="/events" onclick="toggleMenu()">Events</a>
+  <a href="/a-propos" onclick="toggleMenu()">À propos</a>
+  <a href="/contact" class="nav-cta" onclick="toggleMenu()">Contact</a>
+</aside>
 
 <div class="page">
   <h1>Politique de Confidentialité</h1>
@@ -254,6 +287,21 @@ footer{background:#00133D;padding:20px 48px;display:flex;justify-content:space-b
     <a href="mailto:contact@wonderxperience.com">contact@wonderxperience.com</a>
   </div>
 </footer>
+
+<script>
+function toggleMenu(){
+  var b=document.querySelector('.nav-burger');
+  var m=document.getElementById('mobileMenu');
+  var bd=document.querySelector('.mobile-backdrop');
+  if(!b||!m||!bd)return;
+  var isOpen=m.classList.toggle('open');
+  b.classList.toggle('open',isOpen);
+  bd.classList.toggle('open',isOpen);
+  document.body.classList.toggle('menu-open',isOpen);
+  b.setAttribute('aria-expanded',isOpen?'true':'false');
+}
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){var m=document.getElementById('mobileMenu');if(m&&m.classList.contains('open'))toggleMenu()}});
+</script>
 
 </body>
 </html>
