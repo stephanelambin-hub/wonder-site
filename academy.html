@@ -72,8 +72,9 @@
 </script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;font-family:'Poppins',sans-serif}
-body{overflow-x:hidden;color:#00133D;background:#fff}
+html,body{margin:0;padding:0;overflow-x:hidden}
+html{scroll-behavior:smooth;font-family:'Poppins',sans-serif;background:#00133D}
+body{color:#00133D;background:#fff}
 
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;background:transparent;padding:0 48px;height:72px;display:flex;align-items:center;justify-content:space-between;transition:background 0.3s}
@@ -198,7 +199,7 @@ body.menu-open{overflow:hidden}
 
 @media(max-width:900px){.modules-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:768px){
-  nav{padding:0 20px;background:#00133D}
+  nav{padding:0 20px}
   .nav-burger{display:block}
   .nav-links{display:none}
   .hero{min-height:auto;padding:110px 24px 50px}
