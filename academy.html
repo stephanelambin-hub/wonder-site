@@ -24,55 +24,144 @@
 <meta name="twitter:description" content="Wonder Academy forme vos équipes au service client et à la relation client. Modules immersifs, pédagogie sur-mesure et résultats concrets.">
 <meta name="twitter:image" content="https://wonderxperience.com/assets/og-image.jpg">
 
-<!-- Schema.org -->
+<!-- TODO: uploader le logo à https://wonderxperience.com/logo.png (chemin référencé dans ce JSON-LD, actuellement 404) -->
+<!-- Schema.org JSON-LD -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "ItemList",
-  "name": "WONDER Academy — Catalogue de formations",
-  "description": "Modules de formation en codes du luxe, hôtellerie, restauration, élégance professionnelle et excellence de service.",
-  "url": "https://wonderxperience.com/academy",
-  "provider": {
-    "@type": "Organization",
-    "name": "WONDER",
-    "url": "https://wonderxperience.com"
-  },
-  "itemListElement": [
+  "@graph": [
     {
-      "@type": "ListItem",
-      "position": 1,
-      "item": {
-        "@type": "Course",
-        "name": "Savoir Diriger",
-        "description": "Ajuster sa posture pour transformer la dynamique d'équipe.",
-        "provider": { "@type": "Organization", "name": "WONDER" },
-        "timeRequired": "P1D",
-        "educationalLevel": "Managers"
-      }
+      "@type": "EducationalOrganization",
+      "@id": "https://wonderxperience.com/academy#educationalorganization",
+      "name": "WONDER Academy",
+      "url": "https://wonderxperience.com/academy",
+      "description": "Organisme de formation spécialisé en service client, relation client et comportement professionnel pour tous les métiers du service.",
+      "parentOrganization": {
+        "@id": "https://wonderxperience.com/#organization"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Paris",
+        "addressCountry": "FR"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/stephane-lambin/",
+        "https://www.instagram.com/stephane.lambin",
+        "https://www.tiktok.com/@stephane.lambin"
+      ]
     },
     {
-      "@type": "ListItem",
-      "position": 2,
-      "item": {
-        "@type": "Course",
-        "name": "Fondamentaux de l'Expérience Client",
-        "description": "Comprendre que l'expérience client repose sur une posture, pas uniquement sur des standards.",
-        "provider": { "@type": "Organization", "name": "WONDER" },
-        "timeRequired": "PT3H30M",
-        "educationalLevel": "Équipes opérationnelles"
-      }
+      "@type": "Service",
+      "@id": "https://wonderxperience.com/academy#service",
+      "name": "WONDER Academy",
+      "description": "Programmes de formation en service client, relation client et comportement professionnel pour tous les métiers du service.",
+      "url": "https://wonderxperience.com/academy",
+      "provider": {
+        "@id": "https://wonderxperience.com/#organization"
+      },
+      "serviceType": [
+        "Formation service client",
+        "Formation relation client",
+        "Formation expérience client",
+        "Formation accueil client",
+        "Formation comportement professionnel",
+        "Formation culture service",
+        "Formation excellence client",
+        "Formation équipes commerciales",
+        "Formation management service client",
+        "Formation codes du luxe",
+        "Formation hôtellerie",
+        "Formation retail",
+        "Formation banque et assurance",
+        "Formation spa et bien-être",
+        "Formation concession automobile",
+        "Formation petit commerce",
+        "Formation restauration",
+        "Formation tourisme",
+        "Coaching équipe service client",
+        "Programme interne formation service"
+      ],
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "France"
+        },
+        {
+          "@type": "Country",
+          "name": "Belgique"
+        },
+        {
+          "@type": "Country",
+          "name": "Suisse"
+        },
+        {
+          "@type": "Place",
+          "name": "DOM-TOM"
+        }
+      ],
+      "audience": [
+        {
+          "@type": "Audience",
+          "audienceType": "Directeurs généraux"
+        },
+        {
+          "@type": "Audience",
+          "audienceType": "Directeurs des ressources humaines"
+        },
+        {
+          "@type": "Audience",
+          "audienceType": "Responsables formation"
+        },
+        {
+          "@type": "Audience",
+          "audienceType": "Managers de proximité"
+        },
+        {
+          "@type": "Audience",
+          "audienceType": "Équipes en contact client"
+        },
+        {
+          "@type": "Audience",
+          "audienceType": "Commerciaux"
+        },
+        {
+          "@type": "Audience",
+          "audienceType": "Réceptionnistes"
+        },
+        {
+          "@type": "Audience",
+          "audienceType": "Conseillers clientèle"
+        },
+        {
+          "@type": "Audience",
+          "audienceType": "Esthéticiennes et praticiens spa"
+        },
+        {
+          "@type": "Audience",
+          "audienceType": "Vendeurs retail"
+        },
+        {
+          "@type": "Audience",
+          "audienceType": "Chargés de relation client"
+        }
+      ]
     },
     {
-      "@type": "ListItem",
-      "position": 3,
-      "item": {
-        "@type": "Course",
-        "name": "Élégance et Image Professionnelle",
-        "description": "Aligner apparence, comportement et intelligence situationnelle pour renforcer l'image de la marque.",
-        "provider": { "@type": "Organization", "name": "WONDER" },
-        "timeRequired": "PT3H30M",
-        "educationalLevel": "Équipes opérationnelles"
-      }
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://wonderxperience.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Academy",
+          "item": "https://wonderxperience.com/academy"
+        }
+      ]
     }
   ]
 }

@@ -30,46 +30,73 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-<!-- Schema.org — Organization + ProfessionalService -->
+<!-- TODO: uploader le logo à https://wonderxperience.com/logo.png (chemin référencé dans ce JSON-LD, actuellement 404) -->
+<!-- Schema.org JSON-LD -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Organization",
-      "@id": "https://wonderxperience.com/#organization",
-      "name": "WONDER",
-      "url": "https://wonderxperience.com",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://wonderxperience.com/logo.png"
-      },
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "email": "contact@wonderxperience.com",
-        "contactType": "customer service",
-        "availableLanguage": "French"
-      },
-      "sameAs": []
-    },
-    {
-      "@type": "ProfessionalService",
+      "@type": "Service",
       "@id": "https://wonderxperience.com/wonder-x-ray#service",
-      "name": "WONDER X-Ray — Audit Expérience Client",
-      "description": "Audit premium de l'expérience client par WONDER. Évaluation humaine de la qualité de service, de l'élégance et de l'excellence relationnelle.",
+      "name": "Wonder X-RAY",
+      "description": "Audit complet de l'expérience client — mystery client, évaluation du parcours client, diagnostic relation client, recommandations terrain.",
       "url": "https://wonderxperience.com/wonder-x-ray",
       "provider": {
         "@id": "https://wonderxperience.com/#organization"
       },
-      "serviceType": "Audit Expérience Client",
-      "areaServed": {
-        "@type": "Country",
-        "name": "France"
-      },
-      "availableChannel": {
-        "@type": "ServiceChannel",
-        "serviceUrl": "https://wonderxperience.fillout.com/rencontre-stephane-lambin"
-      }
+      "serviceType": [
+        "Audit expérience client",
+        "Client mystère",
+        "Mystery client",
+        "Évaluation parcours client",
+        "Diagnostic relation client",
+        "Audit accueil client",
+        "Évaluation équipes en contact client",
+        "Audit service client hôtel",
+        "Audit service client retail",
+        "Audit service client banque",
+        "Audit service client spa",
+        "Audit service client concession automobile",
+        "Rapport recommandations expérience client",
+        "Grille évaluation service client",
+        "Baromètre satisfaction client"
+      ],
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "France"
+        },
+        {
+          "@type": "Country",
+          "name": "Belgique"
+        },
+        {
+          "@type": "Country",
+          "name": "Suisse"
+        },
+        {
+          "@type": "Place",
+          "name": "DOM-TOM"
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://wonderxperience.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Wonder X-Ray",
+          "item": "https://wonderxperience.com/wonder-x-ray"
+        }
+      ]
     }
   ]
 }

@@ -29,7 +29,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-<!-- Schema.org — Organization + ProfessionalService -->
+<!-- TODO: uploader le logo à https://wonderxperience.com/logo.png (chemin référencé dans ce JSON-LD, actuellement 404) -->
+<!-- Schema.org JSON-LD -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -38,37 +39,100 @@
       "@type": "Organization",
       "@id": "https://wonderxperience.com/#organization",
       "name": "WONDER",
+      "alternateName": "Wonder",
       "url": "https://wonderxperience.com",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://wonderxperience.com/logo.png"
+        "url": "https://wonderxperience.com/logo.png",
+        "caption": "WONDER"
       },
+      "description": "Agence spécialisée en conseil, formation et audit de l'expérience client pour tous les métiers du service — hôtellerie, retail, banque, spa, automobile et plus.",
+      "slogan": "Arrêtez de satisfaire, impressionnez vos clients",
+      "founder": {
+        "@type": "Person",
+        "@id": "https://wonderxperience.com/#stephanelambin",
+        "name": "Stéphane Lambin",
+        "jobTitle": "Consultant et Formateur en Expérience Client",
+        "url": "https://wonderxperience.com/a-propos",
+        "sameAs": [
+          "https://www.linkedin.com/in/stephane-lambin/",
+          "https://www.instagram.com/stephane.lambin",
+          "https://www.tiktok.com/@stephane.lambin"
+        ]
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Paris",
+        "addressCountry": "FR"
+      },
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "France"
+        },
+        {
+          "@type": "Country",
+          "name": "Belgique"
+        },
+        {
+          "@type": "Country",
+          "name": "Suisse"
+        }
+      ],
+      "knowsAbout": [
+        "Expérience client",
+        "Formation service client",
+        "Consultant expérience client",
+        "Relation client",
+        "Parcours client",
+        "Formation accueil client",
+        "Audit expérience client",
+        "Satisfaction client",
+        "Formation équipe",
+        "Culture service",
+        "Excellence service client",
+        "Formation comportement client",
+        "Formation vente",
+        "Formation retail",
+        "Formation hôtellerie",
+        "Formation banque assurance",
+        "Formation spa bien-être",
+        "Formation concession automobile",
+        "Formation petit commerce",
+        "Mystery client",
+        "Client mystère"
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/in/stephane-lambin/",
+        "https://www.instagram.com/stephane.lambin",
+        "https://www.tiktok.com/@stephane.lambin",
+        "https://www.linkedin.com/company/wonderxperience"
+      ],
       "contactPoint": {
         "@type": "ContactPoint",
         "email": "contact@wonderxperience.com",
         "contactType": "customer service",
-        "availableLanguage": "French"
-      },
-      "sameAs": ["https://www.linkedin.com/company/wonderxperience"]
+        "availableLanguage": [
+          "French"
+        ],
+        "areaServed": [
+          "FR",
+          "BE",
+          "CH"
+        ]
+      }
     },
     {
-      "@type": "ProfessionalService",
-      "@id": "https://wonderxperience.com/#service",
-      "name": "WONDER — Formation Excellence de Service & Expérience Client",
-      "description": "WONDER forme et accompagne les équipes en hôtellerie, restauration et retail vers l'excellence de service. Audit, formation immersive et événementiel transformant.",
+      "@type": "WebSite",
+      "@id": "https://wonderxperience.com/#website",
       "url": "https://wonderxperience.com",
-      "provider": {
+      "name": "WONDER",
+      "description": "Agence de conseil et formation en expérience client pour tous les métiers du service.",
+      "publisher": {
         "@id": "https://wonderxperience.com/#organization"
       },
-      "serviceType": "Formation Excellence de Service",
-      "areaServed": {
-        "@type": "Country",
-        "name": "France"
-      },
-      "availableChannel": {
-        "@type": "ServiceChannel",
-        "serviceUrl": "https://wonderxperience.fillout.com/rencontre-stephane-lambin"
-      }
+      "inLanguage": "fr-FR",
+      "keywords": "expérience client, formation service client, consultant expérience client, relation client, parcours client, formation accueil client, audit expérience client, satisfaction client, formation équipe, culture service, excellence service client, formation comportement client, formation vente, formation retail, formation hôtellerie, formation banque assurance, formation spa bien-être, formation concession automobile, formation petit commerce, mystery client, client mystère, wonder academy, wonder x-ray"
     }
   ]
 }

@@ -24,20 +24,72 @@
 <meta name="twitter:description" content="Wonder Events crée expériences immersives et team building service client. Événements de formation pour transformer durablement vos équipes.">
 <meta name="twitter:image" content="https://wonderxperience.com/assets/og-image.jpg">
 
-<!-- Schema.org -->
+<!-- TODO: uploader le logo à https://wonderxperience.com/logo.png (chemin référencé dans ce JSON-LD, actuellement 404) -->
+<!-- Schema.org JSON-LD -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "WONDER Events",
-  "description": "Séminaires immersifs, escape games et conférences pour transformer vos équipes. Événements sur mesure en hôtellerie, restauration et retail.",
-  "url": "https://wonderxperience.com/events",
-  "provider": {
-    "@type": "Organization",
-    "name": "WONDER",
-    "url": "https://wonderxperience.com",
-    "email": "contact@wonderxperience.com"
-  }
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": "https://wonderxperience.com/events#service",
+      "name": "WONDER Events",
+      "description": "Expériences immersives et événements sur mesure autour de la culture service client et du management.",
+      "url": "https://wonderxperience.com/events",
+      "provider": {
+        "@id": "https://wonderxperience.com/#organization"
+      },
+      "serviceType": [
+        "Expérience immersive service client",
+        "Événement formation équipe",
+        "Team building service client",
+        "Escape game formation",
+        "Séminaire expérience client",
+        "Conférence service client",
+        "Keynote expérience client",
+        "Animation équipe commerciale",
+        "Workshop relation client",
+        "Journée cohésion équipe service",
+        "Événement sur mesure formation",
+        "Immersion culture service luxe"
+      ],
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "France"
+        },
+        {
+          "@type": "Country",
+          "name": "Belgique"
+        },
+        {
+          "@type": "Country",
+          "name": "Suisse"
+        },
+        {
+          "@type": "Place",
+          "name": "DOM-TOM"
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://wonderxperience.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Events",
+          "item": "https://wonderxperience.com/events"
+        }
+      ]
+    }
+  ]
 }
 </script>
 <style>

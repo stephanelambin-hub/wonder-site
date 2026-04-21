@@ -24,61 +24,82 @@
 <meta name="twitter:description" content="Découvrez Stéphane Lambin, fondateur de Wonder, consultant expérience client à Paris. Praticien du luxe au service de votre excellence de service.">
 <meta name="twitter:image" content="https://wonderxperience.com/assets/og-image.jpg">
 
-<!-- Schema.org -->
+<!-- TODO: uploader le logo à https://wonderxperience.com/logo.png (chemin référencé dans ce JSON-LD, actuellement 404) -->
+<!-- Schema.org JSON-LD -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "WONDER",
-  "url": "https://wonderxperience.com",
-  "logo": "https://wonderxperience.com/assets/logo.png",
-  "description": "Agence hybride spécialisée en formation, conseil stratégique et événementiel pour l'excellence de service en hôtellerie, restauration et retail.",
-  "email": "contact@wonderxperience.com",
-  "sameAs": [
-    "https://www.linkedin.com/in/stephane-lambin/",
-    "https://www.instagram.com/stephane.lambin"
-  ],
-  "founder": {
-    "@type": "Person",
-    "name": "Stéphane Lambin",
-    "jobTitle": "Fondateur",
-    "url": "https://www.linkedin.com/in/stephane-lambin/"
-  },
-  "employee": [
+  "@graph": [
+    {
+      "@type": "ProfilePage",
+      "@id": "https://wonderxperience.com/a-propos#profilepage",
+      "url": "https://wonderxperience.com/a-propos",
+      "name": "À propos — Stéphane Lambin, Expert Expérience Client",
+      "description": "Découvrez Stéphane Lambin, fondateur de Wonder, consultant expérience client à Paris.",
+      "inLanguage": "fr-FR",
+      "isPartOf": {
+        "@id": "https://wonderxperience.com/#website"
+      },
+      "mainEntity": {
+        "@id": "https://wonderxperience.com/#stephanelambin"
+      }
+    },
     {
       "@type": "Person",
+      "@id": "https://wonderxperience.com/#stephanelambin",
       "name": "Stéphane Lambin",
-      "jobTitle": "Fondateur"
+      "jobTitle": "Consultant et Formateur en Expérience Client",
+      "description": "Praticien en palace parisien, fondateur de WONDER, expert en transformation de l'expérience client dans tous les métiers du service.",
+      "url": "https://wonderxperience.com/a-propos",
+      "image": "https://wonderxperience.com/logo.png",
+      "worksFor": {
+        "@id": "https://wonderxperience.com/#organization"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Paris",
+        "addressCountry": "FR"
+      },
+      "knowsAbout": [
+        "Expérience client",
+        "Formation service client",
+        "Management",
+        "Relation client",
+        "Culture service",
+        "Luxe",
+        "Hôtellerie",
+        "Retail",
+        "Comportement client",
+        "Parcours client",
+        "Audit expérience client",
+        "Formation équipes",
+        "Excellence service",
+        "Peak-End Rule",
+        "Sociodynamique",
+        "Boss leader coach"
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/in/stephane-lambin/",
+        "https://www.instagram.com/stephane.lambin",
+        "https://www.tiktok.com/@stephane.lambin"
+      ]
     },
     {
-      "@type": "Person",
-      "name": "Sophie Valentin"
-    },
-    {
-      "@type": "Person",
-      "name": "Pauline Gibert"
-    },
-    {
-      "@type": "Person",
-      "name": "Clotilde Garnier"
-    },
-    {
-      "@type": "Person",
-      "name": "Anne-Charlotte Lallement",
-      "jobTitle": "Co-dirigeante Profil Spa"
-    },
-    {
-      "@type": "Person",
-      "name": "Héloïse Desvaux",
-      "jobTitle": "Co-dirigeante Profil Spa"
-    },
-    {
-      "@type": "Person",
-      "name": "Marie Guthmann"
-    },
-    {
-      "@type": "Person",
-      "name": "Valéry Cros"
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://wonderxperience.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "À propos",
+          "item": "https://wonderxperience.com/a-propos"
+        }
+      ]
     }
   ]
 }
