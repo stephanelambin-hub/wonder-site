@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Disallow: /mentions-legales
+Disallow: /politique-de-confidentialite
+
+Sitemap: https://wonderxperience.com/sitemap.xml
