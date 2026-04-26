@@ -81,7 +81,7 @@ nav.scrolled{background:#00133D;border-bottom:1px solid rgba(255,255,255,0.06)}
 /* DEMO */
 .demo{padding:80px 48px;background:#0a0820;overflow:hidden;position:relative}
 .demo::before{content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:800px;height:400px;border-radius:50%;background:radial-gradient(ellipse,rgba(255,140,0,0.07) 0%,transparent 70%);pointer-events:none}
-.demo-screens{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:24px;position:relative;z-index:2}
+.demo-screens{max-width:880px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:20px;position:relative;z-index:2;align-items:stretch}
 .chat-screen{background:#13101e;border:1px solid rgba(255,255,255,0.08);border-radius:16px;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,0.5)}
 .chat-topbar{background:#1a1628;padding:14px 20px;display:flex;align-items:center;gap:12px;border-bottom:1px solid rgba(255,255,255,0.06)}
 .chat-avatar{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#FF8C00,#d47000);display:flex;align-items:center;justify-content:center;flex-shrink:0}
@@ -185,16 +185,16 @@ footer{background:#00133D;padding:20px 48px;display:flex;justify-content:space-b
 .fade-up.visible{opacity:1;transform:none}
 
 /* REAL SCREENS */
-.demo-screens{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:24px;position:relative;z-index:2}
-.real-screen{border-radius:16px;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,0.4);border:1px solid rgba(255,255,255,0.1)}
+.demo-screens{max-width:880px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:20px;position:relative;z-index:2;align-items:stretch}
+.real-screen{border-radius:16px;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,0.4);border:1px solid rgba(255,255,255,0.1);height:100%}
 .real-screen-bar{background:#e8e3dc;padding:10px 14px;display:flex;gap:6px;align-items:center}
 .real-screen-dot{width:10px;height:10px;border-radius:50%;background:#d4cfc8}
 .real-screen-body{background:#f0ebe3}
-.login-screen{display:flex;flex-direction:column;min-height:560px}
+.login-screen{display:flex;flex-direction:column;height:100%}
 .login-nav{padding:14px 20px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(0,0,0,0.06)}
 .login-logo{font-size:14px;font-weight:700;letter-spacing:1px;color:#1a1a1a}
 .login-contact-btn{background:#FF8C00;color:#fff;border:none;border-radius:6px;padding:8px 16px;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;cursor:pointer;font-family:'Poppins',sans-serif}
-.login-card{margin:20px;background:#e8e2d8;border-radius:16px;padding:28px 24px}
+.login-card{margin:14px;background:#e8e2d8;border-radius:14px;padding:20px 18px}
 .login-card-logo{font-size:22px;font-weight:700;letter-spacing:1px;color:#1a1a1a;text-align:center;margin-bottom:8px}
 .login-tagline{font-size:12px;color:#666;text-align:center;line-height:1.6;font-style:italic;margin-bottom:16px}
 .login-divider{border:none;border-top:1px solid rgba(0,0,0,0.1);margin-bottom:16px}
@@ -203,7 +203,7 @@ footer{background:#00133D;padding:20px 48px;display:flex;justify-content:space-b
 .login-input-pwd{display:flex;justify-content:space-between;align-items:center}
 .login-btn{width:100%;margin-top:16px;background:#FF8C00;color:#fff;border:none;border-radius:8px;padding:13px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Poppins',sans-serif;letter-spacing:0.3px}
 .login-footer-text{font-size:11px;color:#888;text-align:center;margin-top:12px;line-height:1.5}
-.chat-real-screen{display:flex;flex-direction:column;min-height:560px}
+.chat-real-screen{display:flex;flex-direction:column}
 .mobile-only{display:none}
 .chat-real-nav{padding:14px 20px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(0,0,0,0.06);background:#f0ebe3}
 .chat-real-client{font-size:11px;color:#555;background:rgba(0,0,0,0.06);border-radius:20px;padding:4px 12px;border:1px solid rgba(0,0,0,0.1)}
