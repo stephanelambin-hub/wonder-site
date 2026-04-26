@@ -81,7 +81,7 @@ nav.scrolled{background:#00133D;border-bottom:1px solid rgba(255,255,255,0.06)}
 /* DEMO */
 .demo{padding:80px 48px;background:#0a0820;overflow:hidden;position:relative}
 .demo::before{content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:800px;height:400px;border-radius:50%;background:radial-gradient(ellipse,rgba(255,140,0,0.07) 0%,transparent 70%);pointer-events:none}
-.demo-screens{max-width:880px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:20px;position:relative;z-index:2;align-items:stretch}
+.demo-screens{max-width:880px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:20px;position:relative;z-index:2;align-items:center}
 .chat-screen{background:#13101e;border:1px solid rgba(255,255,255,0.08);border-radius:16px;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,0.5)}
 .chat-topbar{background:#1a1628;padding:14px 20px;display:flex;align-items:center;gap:12px;border-bottom:1px solid rgba(255,255,255,0.06)}
 .chat-avatar{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#FF8C00,#d47000);display:flex;align-items:center;justify-content:center;flex-shrink:0}
@@ -185,12 +185,12 @@ footer{background:#00133D;padding:20px 48px;display:flex;justify-content:space-b
 .fade-up.visible{opacity:1;transform:none}
 
 /* REAL SCREENS */
-.demo-screens{max-width:880px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:20px;position:relative;z-index:2;align-items:stretch}
-.real-screen{border-radius:16px;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,0.4);border:1px solid rgba(255,255,255,0.1);height:100%}
+.demo-screens{max-width:880px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:20px;position:relative;z-index:2;align-items:center}
+.real-screen{border-radius:16px;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,0.4);border:1px solid rgba(255,255,255,0.1)}
 .real-screen-bar{background:#e8e3dc;padding:10px 14px;display:flex;gap:6px;align-items:center}
 .real-screen-dot{width:10px;height:10px;border-radius:50%;background:#d4cfc8}
 .real-screen-body{background:#f0ebe3}
-.login-screen{display:flex;flex-direction:column;height:100%}
+.login-screen{display:flex;flex-direction:column}
 .login-nav{padding:14px 20px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(0,0,0,0.06)}
 .login-logo{font-size:14px;font-weight:700;letter-spacing:1px;color:#1a1a1a}
 .login-contact-btn{background:#FF8C00;color:#fff;border:none;border-radius:6px;padding:8px 16px;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;cursor:pointer;font-family:'Poppins',sans-serif}
@@ -235,6 +235,20 @@ footer{background:#00133D;padding:20px 48px;display:flex;justify-content:space-b
   .dash-cards{grid-template-columns:1fr}
   footer{padding:22px 24px;flex-direction:column;text-align:center}
 }
+
+.nav-burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none;z-index:1001}
+.nav-burger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:all 0.3s}
+nav.scrolled .nav-burger span{background:#00133D}
+.nav-burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-burger.open span:nth-child(2){opacity:0}
+.nav-burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media(max-width:768px){
+  .nav-burger{display:flex}
+  .nav-links{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,19,61,0.97);flex-direction:column;align-items:center;justify-content:center;gap:28px;z-index:1000}
+  .nav-links.open{display:flex}
+  .nav-links a{font-size:16px;letter-spacing:2px;color:rgba(255,255,255,0.8)}
+  .nav-links a:hover,.nav-links a.active{color:#FF8C00}
+}
 </style>
 </head>
 <body>
@@ -251,6 +265,7 @@ footer{background:#00133D;padding:20px 48px;display:flex;justify-content:space-b
     <a href="/a-propos">À propos</a>
     <a href="/contact" class="nav-cta">Contact</a>
   </div>
+  <button class="nav-burger" id="navBurger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 
 <!-- HERO -->
@@ -355,7 +370,7 @@ footer{background:#00133D;padding:20px 48px;display:flex;justify-content:space-b
     <h2 class="s-title" style="color:#fff">WONDER·AI en action.</h2>
     <p style="font-size:14px;color:rgba(255,255,255,0.5);font-weight:300;line-height:1.8">Voici à quoi ressemble une conversation avec votre assistant, simple, fluide, expert.</p>
   </div>
-  <div class="demo-screens fade-up">
+  <div class="demo-screens fade-up" style="transform:scale(0.82);transform-origin:top center;margin-bottom:-10%">
 
     <!-- ÉCRAN 1 : Page de connexion -->
     <a href="https://wonderxperience-ai.com" target="_blank" rel="noopener" style="display:block;text-decoration:none">
@@ -516,6 +531,22 @@ const obs=new IntersectionObserver((entries)=>{
   entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})
 },{threshold:0.08});
 document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+</script>
+<script>
+var burger=document.getElementById('navBurger');
+var links=document.querySelector('.nav-links');
+if(burger&&links){
+  burger.addEventListener('click',function(){
+    burger.classList.toggle('open');
+    links.classList.toggle('open');
+  });
+  links.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click',function(){
+      burger.classList.remove('open');
+      links.classList.remove('open');
+    });
+  });
+}
 </script>
 </body>
 </html>

@@ -45,6 +45,20 @@ footer{background:#00133D;padding:20px 48px;display:flex;justify-content:space-b
   .page{padding:100px 24px 60px}
   footer{padding:22px 24px;flex-direction:column;text-align:center}
 }
+
+.nav-burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none;z-index:1001}
+.nav-burger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:all 0.3s}
+nav.scrolled .nav-burger span{background:#00133D}
+.nav-burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-burger.open span:nth-child(2){opacity:0}
+.nav-burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media(max-width:768px){
+  .nav-burger{display:flex}
+  .nav-links{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,19,61,0.97);flex-direction:column;align-items:center;justify-content:center;gap:28px;z-index:1000}
+  .nav-links.open{display:flex}
+  .nav-links a{font-size:16px;letter-spacing:2px;color:rgba(255,255,255,0.8)}
+  .nav-links a:hover,.nav-links a.active{color:#FF8C00}
+}
 </style>
 </head>
 <body>
@@ -55,11 +69,11 @@ footer{background:#00133D;padding:20px 48px;display:flex;justify-content:space-b
     <a href="/">Accueil</a>
     <a href="/wonder-x-ray">X-Ray</a>
     <a href="/academy">Academy</a>
-    <a href="/wonder-ai">WONDER·AI</a>
     <a href="/events">Events</a>
     <a href="/a-propos">À propos</a>
     <a href="/contact" class="nav-cta">Contact</a>
   </div>
+  <button class="nav-burger" id="navBurger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 
 <div class="page">
@@ -130,5 +144,22 @@ footer{background:#00133D;padding:20px 48px;display:flex;justify-content:space-b
   </div>
 </footer>
 
+
+<script>
+var burger=document.getElementById('navBurger');
+var links=document.querySelector('.nav-links');
+if(burger&&links){
+  burger.addEventListener('click',function(){
+    burger.classList.toggle('open');
+    links.classList.toggle('open');
+  });
+  links.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click',function(){
+      burger.classList.remove('open');
+      links.classList.remove('open');
+    });
+  });
+}
+</script>
 </body>
 </html>
