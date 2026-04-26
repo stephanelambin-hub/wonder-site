@@ -3,83 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact Wonder — Consultant Expérience Client</title>
-<meta name="description" content="Contactez Wonder pour vos projets d'expérience client : formation, audit, événementiel. Un consultant expérience client dédié vous répond.">
-<meta name="robots" content="index, follow">
+<title>Contact WONDER — Formation Excellence de Service & Codes du Luxe</title>
+<meta name="description" content="Contactez WONDER pour vos projets de formation en excellence de service, codes du luxe, hôtellerie et restauration.">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="canonical" href="https://wonderxperience.com/contact">
-
-<!-- Open Graph -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://wonderxperience.com/contact">
-<meta property="og:title" content="Contact Wonder — Consultant Expérience Client">
-<meta property="og:description" content="Contactez Wonder pour vos projets d'expérience client : formation, audit, événementiel. Un consultant expérience client dédié vous répond.">
-<meta property="og:image" content="https://wonderxperience.com/assets/og-image.jpg">
-<meta property="og:site_name" content="Wonder">
-<meta property="og:locale" content="fr_FR">
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Contact Wonder — Consultant Expérience Client">
-<meta name="twitter:description" content="Contactez Wonder pour vos projets d'expérience client : formation, audit, événementiel. Un consultant expérience client dédié vous répond.">
-<meta name="twitter:image" content="https://wonderxperience.com/assets/og-image.jpg">
-
-<!-- TODO: uploader le logo à https://wonderxperience.com/logo.png (chemin référencé dans ce JSON-LD, actuellement 404) -->
-<!-- Schema.org JSON-LD -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "ContactPage",
-      "@id": "https://wonderxperience.com/contact#contactpage",
-      "name": "Contact WONDER",
-      "url": "https://wonderxperience.com/contact",
-      "description": "Contactez WONDER pour vos projets de formation, audit et conseil en expérience client — réponse sous 24h.",
-      "inLanguage": "fr-FR",
-      "isPartOf": {
-        "@id": "https://wonderxperience.com/#website"
-      },
-      "mainEntity": {
-        "@id": "https://wonderxperience.com/#organization"
-      },
-      "keywords": "contact consultant expérience client, contact formation service client, devis formation relation client, contact wonder paris"
-    },
-    {
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Accueil",
-          "item": "https://wonderxperience.com/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Contact",
-          "item": "https://wonderxperience.com/contact"
-        }
-      ]
-    }
-  ]
-}
-</script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-html,body{margin:0;padding:0;overflow-x:hidden}
-html{scroll-behavior:smooth;font-family:'Poppins',sans-serif;background:#00133D}
-body{color:#00133D;background:#fff}
+html{scroll-behavior:smooth;font-family:'Poppins',sans-serif}
+body{overflow-x:hidden;color:#00133D;background:#fff}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:#00133D;padding:0 48px;height:72px;display:flex;align-items:center;justify-content:space-between;transition:background 0.3s}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:transparent;padding:0 48px;height:72px;display:flex;align-items:center;justify-content:space-between;transition:background 0.3s}
 nav.scrolled{background:#00133D;border-bottom:1px solid rgba(255,255,255,0.06)}
 .nav-logo{color:#fff;font-size:16px;font-weight:500;letter-spacing:3px;text-decoration:none;font-family:'Poppins',sans-serif}
 .nav-links{display:flex;gap:36px;align-items:center}
 .nav-links a{color:rgba(255,255,255,0.6);text-decoration:none;font-size:11px;font-weight:400;letter-spacing:1.5px;text-transform:uppercase;transition:color 0.2s}
 .nav-links a:hover,.nav-links a.active{color:#fff}
-.nav-cta.active{background:#7000FF!important;color:#fff!important}
-.nav-cta.active{background:#7000FF!important;color:#fff!important}
 .nav-cta{background:#7000FF!important;color:#fff!important;padding:10px 22px;border-radius:6px;font-weight:500!important;font-size:11px!important;letter-spacing:1px;text-transform:uppercase!important}
 
 /* HERO */
@@ -140,67 +78,29 @@ footer{background:#00133D;padding:20px 48px;display:flex;justify-content:space-b
 .fade-up{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease}
 .fade-up.visible{opacity:1;transform:none}
 
-/* BURGER */
-.nav-burger{display:none;background:transparent;border:0;padding:10px;cursor:pointer;margin:0;position:relative;z-index:1}
-.nav-burger-line{display:block;width:24px;height:2px;background:#fff;margin:5px 0;transition:transform 0.3s,opacity 0.3s;border-radius:2px}
-.nav-burger.open .nav-burger-line:nth-child(1){transform:translateY(7px) rotate(45deg)}
-.nav-burger.open .nav-burger-line:nth-child(2){opacity:0}
-.nav-burger.open .nav-burger-line:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-.mobile-menu{position:fixed;top:0;right:0;bottom:0;width:100%;max-width:320px;background:#00133D;z-index:98;padding:96px 28px 32px;transform:translateX(100%);transition:transform 0.35s ease;display:flex;flex-direction:column;gap:2px;overflow-y:auto;box-shadow:-8px 0 28px rgba(0,0,0,0.25)}
-.mobile-menu.open{transform:translateX(0)}
-.mobile-menu a{color:rgba(255,255,255,0.75);text-decoration:none;font-size:13px;font-weight:400;letter-spacing:1.5px;text-transform:uppercase;padding:16px 4px;border-bottom:1px solid rgba(255,255,255,0.08);transition:color 0.2s}
-.mobile-menu a:hover,.mobile-menu a.active{color:#fff}
-.mobile-menu a.nav-cta{background:#7000FF!important;color:#fff!important;padding:14px 22px!important;border-radius:6px!important;text-align:center;border-bottom:0;margin-top:16px;font-size:12px!important;letter-spacing:1px!important}
-.mobile-backdrop{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:90;opacity:0;pointer-events:none;transition:opacity 0.3s}
-.mobile-backdrop.open{opacity:1;pointer-events:auto}
-body.menu-open{overflow:hidden}
-
-@media(max-width:768px){
-  nav{padding:0 20px}
-  .nav-burger{display:block}
-  .nav-links{display:none}
-  .hero{padding-top:110px;padding-bottom:40px}
-  .hero h1{font-size:clamp(26px,8vw,36px)}
-}
 @media(max-width:600px){
-  .hero,.contact-section{padding-left:20px;padding-right:20px}
-  .contact-card{padding:22px 18px}
-  .card-header{flex-direction:column;gap:10px;text-align:center}
-  .card-header h2{font-size:16px}
+  nav{padding:0 20px}.nav-links{display:none}
+  .hero,.contact-section{padding-left:24px;padding-right:24px}
+  .contact-card{padding:24px}
   .form-grid{grid-template-columns:1fr}
-  .btn-v,.form-submit{width:100%;justify-content:center}
-  footer{padding:22px 20px;flex-direction:column;text-align:center}
-  .coords{margin-top:28px}
+  footer{padding:22px 24px;flex-direction:column;text-align:center}
 }
 </style>
 </head>
 <body>
 
-<nav id="nav">
+<nav id="nav" class="scrolled">
   <a href="/" class="nav-logo">WONDER</a>
   <div class="nav-links">
     <a href="/">Accueil</a>
     <a href="/wonder-x-ray">X-Ray</a>
     <a href="/academy">Academy</a>
+    <a href="/wonder-ai">WONDER·AI</a>
     <a href="/events">Events</a>
     <a href="/a-propos">À propos</a>
-    <a href="/contact" class="nav-cta active">Contact</a>
+    <a href="/contact" class="active">Contact</a>
   </div>
-  <button class="nav-burger" aria-label="Ouvrir le menu" aria-expanded="false" onclick="toggleMenu()">
-    <span class="nav-burger-line"></span>
-    <span class="nav-burger-line"></span>
-    <span class="nav-burger-line"></span>
-  </button>
 </nav>
-<div class="mobile-backdrop" onclick="toggleMenu()"></div>
-<aside class="mobile-menu" id="mobileMenu">
-  <a href="/" onclick="toggleMenu()">Accueil</a>
-  <a href="/wonder-x-ray" onclick="toggleMenu()">X-Ray</a>
-  <a href="/academy" onclick="toggleMenu()">Academy</a>
-  <a href="/events" onclick="toggleMenu()">Events</a>
-  <a href="/a-propos" onclick="toggleMenu()">À propos</a>
-  <a href="/contact" class="nav-cta active" onclick="toggleMenu()">Contact</a>
-</aside>
 
 <!-- HERO -->
 <section class="hero fade-up" style="padding:140px 48px 56px;text-align:center"><h1 style="font-size:clamp(32px,5vw,54px);font-weight:500;color:#00133D;letter-spacing:-1px;margin-bottom:12px">Échangeons.</h1><p style="font-size:15px;color:#888;font-weight:300">2 façons de nous contacter.</p></section>
@@ -312,51 +212,25 @@ body.menu-open{overflow:hidden}
 
 
 <script>
-// Navbar fixe sur la page contact
+window.addEventListener('scroll',function(){
+  var n=document.getElementById('nav');
+  n.classList.add('scrolled')
+});
 
-function toggleMenu(){
-  var b=document.querySelector('.nav-burger');
-  var m=document.getElementById('mobileMenu');
-  var bd=document.querySelector('.mobile-backdrop');
-  if(!b||!m||!bd)return;
-  var isOpen=m.classList.toggle('open');
-  b.classList.toggle('open',isOpen);
-  bd.classList.toggle('open',isOpen);
-  document.body.classList.toggle('menu-open',isOpen);
-  b.setAttribute('aria-expanded',isOpen?'true':'false');
-}
-document.addEventListener('keydown',function(e){if(e.key==='Escape'){var m=document.getElementById('mobileMenu');if(m&&m.classList.contains('open'))toggleMenu()}});
+
+
 
 
 function submitForm(e) {
   e.preventDefault();
   const form = document.getElementById('contactForm');
   const success = document.getElementById('formSuccess');
-  const btn = form.querySelector('.form-submit');
-  btn.disabled = true;
-  btn.textContent = 'Envoi en cours…';
-  console.log('Envoi vers Formspree...');
-  fetch('https://formspree.io/f/xlgawalb', {
-    method: 'POST',
-    body: new FormData(form),
-    headers: { 'Accept': 'application/json' }
-  })
-  .then(res => {
-    if (res.ok) {
-      form.reset();
-      success.style.display = 'block';
-      setTimeout(() => success.style.display = 'none', 6000);
-    } else {
-      alert('Une erreur est survenue. Merci de réessayer ou de nous écrire directement à contact@wonderxperience.com');
-    }
-  })
-  .catch(() => {
-    alert('Une erreur est survenue. Merci de réessayer ou de nous écrire directement à contact@wonderxperience.com');
-  })
-  .finally(() => {
-    btn.disabled = false;
-    btn.textContent = 'Envoyer →';
-  });
+  // Simulation envoi — à brancher sur Airtable ou email service
+  setTimeout(() => {
+    form.reset();
+    success.style.display = 'block';
+    setTimeout(() => success.style.display = 'none', 5000);
+  }, 400);
 }
 
 const obs=new IntersectionObserver(entries=>{
