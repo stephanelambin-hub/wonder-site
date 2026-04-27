@@ -56,7 +56,8 @@ nav.scrolled{background:#00133D;border-bottom:1px solid rgba(255,255,255,0.06)}
 .step-card p{font-size:12px;color:#778;font-weight:300;line-height:1.7}
 
 /* RADAR SECTION */
-.radar-wrap{width:100%;max-width:420px;margin:0 auto}
+.radar-wrap{width:100%;max-width:480px;margin:0 auto;overflow:visible}
+.radar-wrap svg{width:100%;height:auto;display:block}
 .radar-layout{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;margin-top:48px}
 .themes-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .t-card{background:#fff;border:1px solid #e8e4eb;border-radius:10px;padding:14px 16px}
@@ -112,6 +113,7 @@ footer{background:#00133D;padding:20px 48px;display:flex;justify-content:space-b
 @media(max-width:900px){
   .steps-grid{grid-template-columns:1fr 1fr}
   .radar-layout{grid-template-columns:1fr}
+  .radar-wrap{max-width:100%;padding:0 8px}
   .zones-grid{grid-template-columns:1fr 1fr}
 }
 @media(max-width:600px){
@@ -133,7 +135,8 @@ nav.scrolled .nav-burger span{background:#00133D}
   .nav-links{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,19,61,0.97);flex-direction:column;align-items:center;justify-content:center;gap:28px;z-index:1000}
   .nav-links.open{display:flex}
   .nav-links a{font-size:16px;letter-spacing:2px;color:rgba(255,255,255,0.8)}
-  .nav-links a:hover,.nav-links a.active{color:#FF8C00}
+  .nav-links a:hover,.nav-links a.active{color:#7000FF}
+  .nav-links a.active span{color:#7000FF}
 }
 </style>
 </head>
@@ -203,7 +206,7 @@ nav.scrolled .nav-burger span{background:#00133D}
     <div class="radar-layout">
       <!-- Radar -->
       <div class="radar-wrap">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 520" width="420" height="420">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 10 640 520" width="100%" height="auto" style="overflow:visible">
   <defs>
     <style>@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');</style>
   </defs>
