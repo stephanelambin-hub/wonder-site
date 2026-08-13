@@ -5,8 +5,33 @@
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "Access-Control-Allow-Origin", "value": "*" }
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
       ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/wonder-academy",
+      "destination": "/academy",
+      "statusCode": 301
+    },
+    {
+      "source": "/notre-equipe",
+      "destination": "/a-propos",
+      "statusCode": 301
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/contact",
+      "destination": "/contact_1.html"
+    },
+    {
+      "source": "/wonder-ai",
+      "destination": "/wonder-ai_2.html"
     }
   ]
 }
