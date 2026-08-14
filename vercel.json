@@ -27,11 +27,11 @@
   "rewrites": [
     {
       "source": "/contact",
-      "destination": "/contact_1.html"
+      "destination": "/contact_1"
     },
     {
       "source": "/wonder-ai",
-      "destination": "/wonder-ai_2.html"
+      "destination": "/wonder-ai_2"
     }
   ]
 }
