@@ -10,9 +10,46 @@
           "value": "*"
         }
       ]
+    },
+    {
+      "source": "/robots.txt",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        },
+        {
+          "key": "Content-Type",
+          "value": "text/plain; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "source": "/sitemap.xml",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/xml; charset=utf-8"
+        }
+      ]
     }
   ],
   "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "wonderxperience.com"
+        }
+      ],
+      "destination": "https://www.wonderxperience.com/:path*",
+      "statusCode": 301
+    },
     {
       "source": "/wonder-academy",
       "destination": "/academy",
@@ -27,11 +64,11 @@
   "rewrites": [
     {
       "source": "/contact",
-      "destination": "/contact_1"
+      "destination": "/contact_1.html"
     },
     {
       "source": "/wonder-ai",
-      "destination": "/wonder-ai_2"
+      "destination": "/wonder-ai_2.html"
     }
   ]
 }
