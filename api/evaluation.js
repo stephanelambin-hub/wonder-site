@@ -93,12 +93,7 @@ module.exports = async function handler(req, res) {
       return res.status(200).json({ sessions });
     } catch (err) {
       console.error('[evaluation] GET', err);
-      return res.status(500).json({
-        error: 'Lecture des sessions impossible',
-        diagnostic: String((err && err.message) || err).slice(0, 300),
-        baseUtilisee: BASE_ID,
-        longueurDuJeton: (TOKEN || '').length
-      });
+      return res.status(500).json({ error: 'Lecture des sessions impossible' });
     }
   }
 
