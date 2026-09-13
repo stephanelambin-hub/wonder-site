@@ -77,6 +77,16 @@
       "source": "/notre-equipe",
       "destination": "/a-propos",
       "statusCode": 301
+    },
+    {
+      "source": "/recrutement",
+      "destination": "/contact",
+      "statusCode": 301
+    },
+    {
+      "source": "/demarche",
+      "destination": "/a-propos",
+      "statusCode": 301
     }
   ]
 }

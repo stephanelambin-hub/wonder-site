@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Évaluation de formation — WONDER</title>
+<meta name="description" content="Trois minutes pour nous aider à nous améliorer.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#00133D">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{font-family:'Poppins',system-ui,-apple-system,sans-serif;scroll-behavior:smooth}
+body{background:#f9f7fb;color:#00133D;min-height:100vh;font-size:15px;line-height:1.6}
+
+header{background:linear-gradient(135deg,#00133D 0%,#0a1a4a 60%,#0d1f55 100%);color:#fff;padding:24px 22px 20px;position:sticky;top:0;z-index:50}
+.logo{font-size:14px;font-weight:500;letter-spacing:3.5px;color:#fff;text-decoration:none;display:inline-block}
+.h-title{font-size:19px;font-weight:500;margin-top:9px;letter-spacing:-.3px;line-height:1.3}
+.h-sub{font-size:12.5px;font-weight:300;color:rgba(255,255,255,.6);margin-top:4px}
+.bar{height:3px;background:rgba(255,255,255,.14);border-radius:3px;margin-top:16px;overflow:hidden}
+.bar span{display:block;height:100%;width:25%;background:#7000FF;border-radius:3px;transition:width .45s cubic-bezier(.4,0,.2,1)}
+.steps{font-size:10px;letter-spacing:1.6px;text-transform:uppercase;color:rgba(255,255,255,.48);margin-top:8px}
+
+main{max-width:620px;margin:0 auto;padding:22px 18px 130px}
+.step{display:none;animation:in .32s ease both}
+.step.on{display:block}
+@keyframes in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.card{background:#fff;border-radius:14px;padding:22px 18px;margin-bottom:13px;box-shadow:0 1px 3px rgba(0,19,61,.05),0 6px 24px rgba(0,19,61,.045)}
+.tag{font-size:10px;text-transform:uppercase;letter-spacing:2px;color:#7000FF;font-weight:500;margin-bottom:7px}
+h2{font-size:19px;font-weight:500;letter-spacing:-.2px;margin-bottom:5px;line-height:1.3}
+.lead{font-size:13px;color:#7c8093;font-weight:300;margin-bottom:20px;line-height:1.65}
+
+label.q{display:block;font-size:14.5px;font-weight:400;margin-bottom:11px;line-height:1.45}
+.opt{font-size:11px;color:#a9adbd;font-weight:300;margin-left:4px}
+input[type=text],select,textarea{width:100%;font-family:inherit;font-size:15px;color:#00133D;background:#f9f7fb;border:1.5px solid #ece8f2;border-radius:10px;padding:13px 14px;transition:border-color .2s,background .2s}
+input[type=text]:focus,select:focus,textarea:focus{outline:none;border-color:#7000FF;background:#fff}
+textarea{resize:none;min-height:62px;line-height:1.6;overflow:hidden}
+select{appearance:none;background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237000FF' stroke-width='1.8' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 15px center;padding-right:36px}
+.field{margin-bottom:19px}
+.field:last-child{margin-bottom:0}
+
+/* echelle en 4 points */
+.rate{border:none;padding:0;margin:0 0 22px}
+.rate:last-of-type{margin-bottom:0}
+.quatre{display:grid;grid-template-columns:repeat(4,1fr);gap:5px}
+.quatre button{min-height:58px;border:1.5px solid #ece8f2;background:#fff;border-radius:10px;font-family:inherit;font-size:11px;font-weight:400;line-height:1.3;color:#5c6178;cursor:pointer;padding:6px 3px;transition:all .15s ease}
+.quatre button:active{transform:scale(.95)}
+.quatre button.on{background:#7000FF;border-color:#7000FF;color:#fff;font-weight:500;box-shadow:0 3px 12px rgba(112,0,255,.24)}
+
+/* NPS */
+.nps{display:grid;grid-template-columns:repeat(11,1fr);gap:4px}
+.nps button{min-height:44px;border:1.5px solid #ece8f2;background:#fff;border-radius:8px;font-family:inherit;font-size:13px;color:#00133D;cursor:pointer;padding:0;transition:all .15s ease}
+.nps button:active{transform:scale(.92)}
+.nps button.on{background:#7000FF;border-color:#7000FF;color:#fff;font-weight:500}
+.scale{display:flex;justify-content:space-between;font-size:10.5px;color:#a9adbd;font-weight:300;margin-top:7px}
+
+/* oui / non */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.duo button{min-height:48px;border:1.5px solid #ece8f2;background:#fff;border-radius:10px;font-family:inherit;font-size:14px;color:#00133D;cursor:pointer;transition:all .15s ease}
+.duo button:active{transform:scale(.96)}
+.duo button.on{background:#7000FF;border-color:#7000FF;color:#fff;font-weight:500}
+
+.sep{height:1px;background:#f0ecf6;margin:24px 0 22px}
+
+.nav{position:fixed;left:0;right:0;bottom:0;background:rgba(255,255,255,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid #ece8f2;padding:13px 18px calc(13px + env(safe-area-inset-bottom));display:flex;gap:9px;max-width:620px;margin:0 auto;z-index:60}
+.btn{flex:1;height:50px;border-radius:10px;border:none;font-family:inherit;font-size:14.5px;font-weight:500;cursor:pointer;transition:opacity .2s,transform .1s;display:flex;align-items:center;justify-content:center}
+.btn:active{transform:scale(.985)}
+.btn-p{background:#7000FF;color:#fff}
+.btn-p:disabled{opacity:.45;cursor:default}
+.btn-s{flex:0 0 auto;padding:0 20px;background:#fff;border:1.5px solid #ece8f2;color:#00133D}
+.err{background:#fff4f4;border:1.5px solid #ffd9d9;color:#c0392b;border-radius:10px;padding:12px 14px;font-size:13px;margin-bottom:13px;display:none}
+.err.on{display:block}
+
+/* merci */
+#merci{text-align:center;padding:34px 22px 30px}
+.mark{width:62px;height:62px;border-radius:50%;background:#7000FF;display:flex;align-items:center;justify-content:center;margin:0 auto 20px}
+#merci h2{font-size:24px;margin-bottom:10px}
+#merci p{color:#7c8093;font-weight:300;font-size:14.5px;max-width:390px;margin:0 auto 8px;line-height:1.75}
+.avis{margin-top:28px;padding-top:26px;border-top:1px solid #f0ecf6}
+.avis .tag{margin-bottom:8px}
+.avis h3{font-size:16.5px;font-weight:500;margin-bottom:7px;line-height:1.35}
+.avis p{font-size:13.5px;margin-bottom:18px}
+.g-btn{display:flex;align-items:center;justify-content:center;gap:9px;height:52px;background:#00133D;color:#fff;border-radius:10px;text-decoration:none;font-size:14.5px;font-weight:500;transition:opacity .2s}
+.g-btn:active{opacity:.85}
+.g-btn svg{width:19px;height:19px;flex:0 0 auto}
+.mailto{display:inline-block;margin-top:16px;font-size:12.5px;color:#a9adbd;font-weight:300;text-decoration:none;line-height:1.6}
+.mailto b{color:#7000FF;font-weight:500}
+#merci .sign{margin-top:30px;font-size:11px;letter-spacing:3px;color:#c9c4d4;font-weight:500}
+
+footer{text-align:center;padding:0 20px 26px;font-size:11px;color:#a9adbd;font-weight:300;line-height:1.8}
+footer a{color:#a9adbd}
+
+@media(min-width:560px){
+  header{padding:32px 32px 24px}
+  .h-title{font-size:22px}
+  main{padding:28px 22px 140px}
+  .card{padding:28px 26px}
+  .quatre button{font-size:12.5px;min-height:56px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="https://wonderxperience.com" class="logo">WONDER</a>
+  <p class="h-title" id="htitle">Questionnaire de satisfaction</p>
+  <p class="h-sub" id="hsub">Trois minutes pour nous aider à nous améliorer.</p>
+  <div class="bar"><span id="prog"></span></div>
+  <p class="steps" id="stepnum">Étape 1 sur 4</p>
+</header>
+
+<main>
+  <div class="err" id="err"></div>
+
+  <!-- 1 -->
+  <section class="step on" data-step="1">
+    <div class="card">
+      <p class="tag">Votre session</p>
+      <h2>D'abord, où étiez-vous ?</h2>
+      <p class="lead">Seule la session est obligatoire. Le reste est facultatif, vous pouvez rester anonyme.</p>
+
+      <div class="field">
+        <label class="q" for="session">La formation que vous venez de suivre</label>
+        <select id="session"><option value="">Chargement…</option></select>
+      </div>
+      <div class="field" id="libreWrap" style="display:none">
+        <label class="q" for="sessionLibre">Précisez la formation et la date</label>
+        <input type="text" id="sessionLibre" placeholder="Ex. Manager une Brigade, 12 septembre">
+      </div>
+      <div class="field">
+        <label class="q" for="fonction">Votre fonction <span class="opt">facultatif</span></label>
+        <input type="text" id="fonction" placeholder="Ex. Chef de rang, Responsable boutique">
+      </div>
+      <div class="field">
+        <label class="q" for="participant">Votre nom <span class="opt">facultatif</span></label>
+        <input type="text" id="participant" placeholder="Laissez vide pour rester anonyme">
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section class="step" data-step="2">
+    <div class="card">
+      <p class="tag">Le formateur</p>
+      <h2>Celui ou celle qui vous a accompagné</h2>
+      <p class="lead">Soyez francs. C'est ce qui nous fait progresser.</p>
+      <div id="bloc2"></div>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section class="step" data-step="3">
+    <div class="card">
+      <p class="tag">Ce que j'en retire</p>
+      <h2>Et maintenant, sur le terrain</h2>
+      <p class="lead">Une formation utile est une formation qui se voit dès le lendemain.</p>
+      <div id="bloc3"></div>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section class="step" data-step="4">
+    <div class="card">
+      <p class="tag">L'organisation et le global</p>
+      <h2>Pour finir</h2>
+      <p class="lead">Deux dernières questions, puis la parole est à vous.</p>
+      <div id="bloc4"></div>
+
+      <div class="sep"></div>
+
+      <div class="field">
+        <label class="q">Je recommanderais cette formation à un collègue</label>
+        <div class="nps" id="nps"></div>
+        <div class="scale"><span>0 · Certainement pas</span><span>10 · Absolument</span></div>
+      </div>
+
+      <div class="field">
+        <label class="q">Avez-vous rencontré une difficulté liée à un besoin spécifique pendant la journée ?</label>
+        <div class="duo" id="besoin">
+          <button type="button" data-v="Non">Non</button>
+          <button type="button" data-v="Oui">Oui</button>
+        </div>
+      </div>
+      <div class="field" id="precisionWrap" style="display:none">
+        <label class="q" for="precision">Précisez, pour qu'on puisse y remédier</label>
+        <textarea id="precision"></textarea>
+      </div>
+    </div>
+
+    <div class="card">
+      <p class="tag">À vous la parole</p>
+      <h2>Ce que les cases ne disent pas</h2>
+      <p class="lead">Facultatif, et pourtant c'est souvent le plus précieux pour nous.</p>
+
+      <div class="field">
+        <label class="q" for="moment">Le moment fort de la journée</label>
+        <textarea id="moment" placeholder="Un exercice, un échange, un déclic…"></textarea>
+      </div>
+      <div class="field">
+        <label class="q" for="demain">Ce que je change dès demain</label>
+        <textarea id="demain" placeholder="Une action concrète, même petite"></textarea>
+      </div>
+      <div class="field">
+        <label class="q" for="autrement">Ce qu'on aurait pu faire autrement</label>
+        <textarea id="autrement"></textarea>
+      </div>
+    </div>
+  </section>
+
+  <!-- MERCI -->
+  <section class="step" data-step="5">
+    <div class="card" id="merci">
+      <div class="mark">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M4 12.5l5.5 5.5L20 7" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <h2>Merci beaucoup.</h2>
+      <p id="merciTexte" style="display:none">C'est avec ces retours qu'on continue à progresser.</p>
+
+      <div class="avis" id="avis" style="display:none">
+        <p class="tag">Une dernière chose</p>
+        <h3>Ça nous aide plus que vous ne croyez</h3>
+        <p>C'est votre avis Google qui nous fait connaître, vous n'avez qu'à mettre vos étoiles...</p>
+        <a class="g-btn" id="gLink" href="#" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path fill="#fff" d="M12 1.8l3.1 6.3 6.9 1-5 4.9 1.2 6.9-6.2-3.3-6.2 3.3 1.2-6.9-5-4.9 6.9-1z"/></svg>
+          Laisser un avis Google
+        </a>
+      </div>
+
+      <p class="sign">WONDER</p>
+    </div>
+  </section>
+</main>
+
+<div class="nav" id="nav">
+  <button type="button" class="btn btn-s" id="back" style="display:none">Retour</button>
+  <button type="button" class="btn btn-p" id="next">Continuer</button>
+</div>
+
+<footer>
+  Données collectées par WONDER pour améliorer ses formations et répondre aux exigences Qualiopi.<br>
+  Conservation 3 ans. Droit d'accès et de suppression : <a href="mailto:contact@wonderxperience.com">contact@wonderxperience.com</a>
+</footer>
+
+<script>
+(function(){
+'use strict';
+
+/* =========================================================================
+   À RENSEIGNER : lien d'avis Google en un clic.
+   Comment l'obtenir en 30 secondes :
+   Google Business Profile > Demander des avis > copier le lien (https://g.page/r/.../review)
+   Laisser vide masque proprement tout le bloc avis sur l'écran de remerciement.
+   ========================================================================= */
+var LIEN_AVIS_GOOGLE = 'https://g.page/r/CWRK_22lTMADEBM/review';
+
+var API = '/api/evaluation';
+var TOTAL = 4;
+var step = 1;
+var reponses = { echelles:{}, nps:null, besoin:null };
+
+var LABELS = ['Pas du tout','Plutôt non','Plutôt oui','Tout à fait'];
+
+var BLOCS = {
+  bloc2: [
+    ['1. Le formateur maîtrise son sujet',                            'Le formateur maîtrise son sujet'],
+    ['2. Il a rendu la journée vivante et utile',                     'Il a su rendre la journée vivante et utile'],
+    ['3. J\'ai pu poser mes questions et être entendu',               'J\'ai pu poser mes questions et être entendu']
+  ],
+  bloc3: [
+    ['5. Le contenu correspondait à la réalité de mon métier',        'Le contenu correspondait à la réalité de mon métier'],
+    ['6. Les objectifs annoncés ont été atteints',                    'Les objectifs annoncés ont été atteints'],
+    ['7. J\'ai appris quelque chose que je ne savais pas faire avant','J\'ai appris quelque chose que je ne savais pas faire avant'],
+    ['8. Je vois ce que je vais changer dans ma pratique dès demain', 'Je vois précisément ce que je vais changer dans ma pratique dès demain']
+  ],
+  bloc4: [
+    ['4. Les supports utilisés étaient clairs et appropriés',         'Les supports utilisés étaient clairs et appropriés'],
+    ['9. L\'accueil et les conditions matérielles étaient à la hauteur','L\'accueil et les conditions matérielles étaient à la hauteur'],
+    ['10. Globalement, je suis satisfait de cette formation',         'Globalement, je suis satisfait de cette formation']
+  ]
+};
+
+function el(id){ return document.getElementById(id); }
+function val(id){ return (el(id).value || '').trim(); }
+
+/* échelles */
+Object.keys(BLOCS).forEach(function(bloc){
+  var html = '';
+  BLOCS[bloc].forEach(function(q){
+    html += '<fieldset class="rate" data-key="'+q[0]+'">'
+          +   '<label class="q">'+q[1]+'</label><div class="quatre">';
+    for (var i=1;i<=4;i++) html += '<button type="button" data-v="'+i+'">'+LABELS[i-1]+'</button>';
+    html += '</div></fieldset>';
+  });
+  el(bloc).innerHTML = html;
+});
+
+/* NPS */
+(function(){ var h=''; for (var i=0;i<=10;i++) h += '<button type="button" data-v="'+i+'">'+i+'</button>'; el('nps').innerHTML = h; })();
+
+/* lien Google : sans lien renseigné, le bloc avis disparaît et une phrase courte prend sa place */
+if (LIEN_AVIS_GOOGLE) { el('gLink').href = LIEN_AVIS_GOOGLE; el('avis').style.display = 'block'; }
+else { el('merciTexte').style.display = 'block'; }
+
+/* textareas qui grandissent */
+document.addEventListener('input', function(e){
+  if (e.target.tagName === 'TEXTAREA') {
+    e.target.style.height = 'auto';
+    e.target.style.height = e.target.scrollHeight + 'px';
+  }
+});
+
+/* clics */
+document.addEventListener('click', function(e){
+  var b = e.target.closest('button');
+  if (!b) return;
+
+  var fs = b.closest('.rate');
+  if (fs) {
+    reponses.echelles[fs.dataset.key] = +b.dataset.v;
+    fs.querySelectorAll('.quatre button').forEach(function(x){ x.classList.toggle('on', x === b); });
+    hideErr();
+    suivante(fs);
+    return;
+  }
+  var p = b.parentNode;
+  if (!p) return;
+
+  if (p.id === 'nps') {
+    reponses.nps = +b.dataset.v;
+    p.querySelectorAll('button').forEach(function(x){ x.classList.toggle('on', x === b); });
+    hideErr();
+    return;
+  }
+  if (p.id === 'besoin') {
+    reponses.besoin = b.dataset.v;
+    p.querySelectorAll('button').forEach(function(x){ x.classList.toggle('on', x === b); });
+    el('precisionWrap').style.display = b.dataset.v === 'Oui' ? 'block' : 'none';
+    hideErr();
+    return;
+  }
+});
+
+/* fait glisser vers la question suivante non répondue du même écran */
+function suivante(depuis){
+  var toutes = Array.prototype.slice.call(depuis.parentNode.querySelectorAll('.rate'));
+  var i = toutes.indexOf(depuis);
+  var cible = null;
+  for (var k = i + 1; k < toutes.length; k++) {
+    if (!reponses.echelles[toutes[k].dataset.key]) { cible = toutes[k]; break; }
+  }
+  if (!cible) return;
+  setTimeout(function(){
+    var y = cible.getBoundingClientRect().top + window.scrollY - 152;
+    window.scrollTo({ top: y, behavior: 'smooth' });
+  }, 170);
+}
+
+/* sessions */
+fetch(API)
+  .then(function(r){ if(!r.ok) throw 0; return r.json(); })
+  .then(function(j){
+    var h = '<option value="">Choisissez votre session…</option>';
+    (j.sessions || []).forEach(function(x){ h += '<option value="'+x.id+'">'+x.name+'</option>'; });
+    h += '<option value="__autre">Ma session n\'est pas dans la liste</option>';
+    el('session').innerHTML = h;
+  })
+  .catch(function(){
+    el('session').innerHTML = '<option value="__autre">Ma session n\'est pas dans la liste</option>';
+    el('session').value = '__autre';
+    el('session').style.display = 'none';
+    el('libreWrap').style.display = 'block';
+  });
+
+el('session').addEventListener('change', function(){
+  el('libreWrap').style.display = this.value === '__autre' ? 'block' : 'none';
+});
+
+/* navigation */
+function showErr(m){ var e = el('err'); e.textContent = m; e.classList.add('on'); window.scrollTo({top:0,behavior:'smooth'}); }
+function hideErr(){ el('err').classList.remove('on'); }
+
+/* Aucune question n'est bloquante. Seule la session est demandée :
+   sans elle, la réponse n'est rattachable à aucune formation et devient inexploitable. */
+function verifier(){
+  if (step === 1) {
+    if (!el('session').value) return 'Indiquez seulement la formation que vous venez de suivre, le reste est libre.';
+    if (el('session').value === '__autre' && !val('sessionLibre')) return 'Précisez la formation et la date.';
+  }
+  return null;
+}
+
+function afficher(){
+  document.querySelectorAll('.step').forEach(function(s){ s.classList.toggle('on', +s.dataset.step === step); });
+  el('prog').style.width = Math.min(step, TOTAL) / TOTAL * 100 + '%';
+  el('back').style.display = (step > 1 && step <= TOTAL) ? 'flex' : 'none';
+  el('next').textContent = step === TOTAL ? 'Envoyer' : 'Continuer';
+  el('stepnum').textContent = 'Étape ' + step + ' sur ' + TOTAL;
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+el('back').addEventListener('click', function(){ if (step>1){ step--; hideErr(); afficher(); } });
+
+el('next').addEventListener('click', function(){
+  var e = verifier();
+  if (e) return showErr(e);
+  hideErr();
+  if (step < TOTAL) { step++; afficher(); return; }
+  envoyer();
+});
+
+function envoyer(){
+  var btn = el('next');
+  btn.disabled = true;
+  btn.textContent = 'Envoi en cours…';
+
+  fetch(API, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      sessionId:    el('session').value === '__autre' ? null : el('session').value,
+      sessionLibre: el('session').value === '__autre' ? val('sessionLibre') : null,
+      participant:  val('participant'),
+      fonction:     val('fonction'),
+      echelles:     reponses.echelles,
+      nps:          reponses.nps,
+      besoin:       reponses.besoin,
+      precision:    val('precision'),
+      moment:       val('moment'),
+      demain:       val('demain'),
+      autrement:    val('autrement')
+    })
+  })
+  .then(function(r){ if (!r.ok) throw 0; return r.json(); })
+  .then(function(){
+    step = 5;
+    el('nav').style.display = 'none';
+    el('htitle').textContent = 'C\'est envoyé';
+    el('hsub').textContent = 'Merci pour le temps que vous nous avez accordé.';
+    el('prog').style.width = '100%';
+    el('stepnum').textContent = 'Terminé';
+    document.querySelectorAll('.step').forEach(function(s){ s.classList.toggle('on', +s.dataset.step === 5); });
+    window.scrollTo({top:0,behavior:'smooth'});
+  })
+  .catch(function(){
+    btn.disabled = false;
+    btn.textContent = 'Envoyer';
+    showErr('L\'envoi n\'a pas abouti. Vérifiez votre connexion et réessayez.');
+  });
+}
+
+afficher();
+})();
+</script>
+</body>
+</html>
