@@ -83,7 +83,7 @@ module.exports = async function handler(req, res) {
       ].join('&');
 
       const r = await airtable(`${e(T_SESSION)}?${params}`);
-      if (!r.ok) throw new Error(await r.text());
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' ' + (await r.text()).slice(0, 300));
       const j = await r.json();
 
       const sessions = (j.records || [])
@@ -93,7 +93,12 @@ module.exports = async function handler(req, res) {
       return res.status(200).json({ sessions });
     } catch (err) {
       console.error('[evaluation] GET', err);
-      return res.status(500).json({ error: 'Lecture des sessions impossible' });
+      return res.status(500).json({
+        error: 'Lecture des sessions impossible',
+        diagnostic: String((err && err.message) || err).slice(0, 300),
+        baseUtilisee: BASE_ID,
+        longueurDuJeton: (TOKEN || '').length
+      });
     }
   }
 
@@ -155,7 +160,7 @@ module.exports = async function handler(req, res) {
         method: 'POST',
         body: JSON.stringify({ records: [{ fields }], typecast: true })
       });
-      if (!r.ok) throw new Error(await r.text());
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' ' + (await r.text()).slice(0, 300));
       const j = await r.json();
 
       return res.status(200).json({ ok: true, id: j.records?.[0]?.id || null });
