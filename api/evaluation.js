@@ -1,21 +1,26 @@
 /**
  * WONDER - Évaluation de formation
- * Fonction serverless Vercel : sert la liste des sessions et enregistre les réponses dans Airtable.
+ * Fonction serverless Vercel : enregistre les réponses des participants dans Airtable.
+ *
+ * Le participant ne choisit plus sa session. Il saisit le nom de son entreprise,
+ * et le rattachement à la bonne session se fait côté WONDER en croisant
+ * l'entreprise et la date de réponse. Conséquence volontaire : cet endpoint
+ * n'expose plus aucune liste de clients, un participant du Ritz ne peut plus
+ * voir qu'il y a eu une session au Negresco.
  *
  * Variables d'environnement à définir dans Vercel (Settings > Environment Variables) :
  *   AIRTABLE_TOKEN    Personal Access Token Airtable, scopes data.records:read + data.records:write
  *   AIRTABLE_BASE_ID  appBs7YAeV2Ed3HxK   (base "WONDER Academy - Évaluations")
  *
  * Routes :
- *   GET  /api/evaluation   -> { sessions: [{ id, name }] }
+ *   GET  /api/evaluation   -> { ok: true }   simple test de déploiement, ne lit aucune donnée
  *   POST /api/evaluation   -> { ok: true, id }
  */
 
-const BASE_ID   = process.env.AIRTABLE_BASE_ID || 'appBs7YAeV2Ed3HxK';
-const TOKEN     = process.env.AIRTABLE_TOKEN;
-const T_SESSION = 'Sessions';
-const T_EVAL    = 'Évaluations';
-const API       = 'https://api.airtable.com/v0';
+const BASE_ID = process.env.AIRTABLE_BASE_ID || 'appBs7YAeV2Ed3HxK';
+const TOKEN   = process.env.AIRTABLE_TOKEN;
+const T_EVAL  = 'Évaluations';
+const API     = 'https://api.airtable.com/v0';
 
 // Les 10 échelles autorisées, valeurs de 1 à 4.
 // Toute autre clé envoyée par le navigateur est ignorée.
@@ -68,33 +73,11 @@ module.exports = async function handler(req, res) {
 
   if (!TOKEN) return res.status(500).json({ error: 'AIRTABLE_TOKEN manquant' });
 
-  /* ---------------- Liste des sessions ---------------- */
+  /* ---------------- Test de déploiement ----------------
+     Volontairement muet : il confirme que la fonction tourne et que le jeton
+     est présent, sans jamais renvoyer de données de la base. */
   if (req.method === 'GET') {
-    try {
-      // encodeURIComponent plutôt que URLSearchParams : Airtable attend %20 et non + pour les espaces.
-      const e = encodeURIComponent;
-      const params = [
-        `fields%5B%5D=${e('Session')}`,
-        // Seules les sessions ouvertes aux réponses sont exposées.
-        `filterByFormula=${e("OR({Statut}='En cours',{Statut}='Terminée')")}`,
-        `sort%5B0%5D%5Bfield%5D=${e('Date de début')}`,
-        `sort%5B0%5D%5Bdirection%5D=desc`,
-        `pageSize=50`
-      ].join('&');
-
-      const r = await airtable(`${e(T_SESSION)}?${params}`);
-      if (!r.ok) throw new Error('HTTP ' + r.status + ' ' + (await r.text()).slice(0, 300));
-      const j = await r.json();
-
-      const sessions = (j.records || [])
-        .filter(rec => rec.fields && rec.fields['Session'])
-        .map(rec => ({ id: rec.id, name: rec.fields['Session'] }));
-
-      return res.status(200).json({ sessions });
-    } catch (err) {
-      console.error('[evaluation] GET', err);
-      return res.status(500).json({ error: 'Lecture des sessions impossible' });
-    }
+    return res.status(200).json({ ok: true });
   }
 
   /* ---------------- Enregistrement d'une réponse ---------------- */
@@ -103,20 +86,16 @@ module.exports = async function handler(req, res) {
       const body = await lireCorps(req);
       const fields = {};
 
-      // Session : lien vers la table Sessions, ou saisie libre à rattacher plus tard.
-      if (typeof body.sessionId === 'string' && /^rec[A-Za-z0-9]{14}$/.test(body.sessionId)) {
-        fields['Session'] = [body.sessionId];
-      } else if (!texte(body.sessionLibre)) {
-        return res.status(400).json({ error: 'Session manquante' });
-      }
+      // Entreprise : seul champ exigé. C'est la clé de rattachement manuel à une session,
+      // avec la date de réponse. Sans elle la réponse n'est rattachable à rien.
+      const entreprise = texte(body.entreprise, 160);
+      if (!entreprise) return res.status(400).json({ error: 'Entreprise manquante' });
+      fields['Entreprise'] = entreprise;
 
       fields['Participant'] = texte(body.participant, 100) || 'Anonyme';
 
-      const fonction = texte(body.fonction, 120);
-      if (fonction) fields['Fonction'] = fonction;
-
-      const libre = texte(body.sessionLibre, 160);
-      if (libre) fields['Session déclarée (hors liste)'] = libre;
+      const poste = texte(body.poste, 120);
+      if (poste) fields['Poste'] = poste;
 
       // Échelles de 1 à 4
       const echelles = body.echelles || {};
@@ -155,7 +134,7 @@ module.exports = async function handler(req, res) {
         method: 'POST',
         body: JSON.stringify({ records: [{ fields }], typecast: true })
       });
-      if (!r.ok) throw new Error('HTTP ' + r.status + ' ' + (await r.text()).slice(0, 300));
+      if (!r.ok) throw new Error(await r.text());
       const j = await r.json();
 
       return res.status(200).json({ ok: true, id: j.records?.[0]?.id || null });

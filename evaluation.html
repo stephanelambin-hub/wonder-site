@@ -117,25 +117,21 @@ footer a{color:#a9adbd}
   <!-- 1 -->
   <section class="step on" data-step="1">
     <div class="card">
-      <p class="tag">Votre session</p>
-      <h2>D'abord, où étiez-vous ?</h2>
-      <p class="lead">Seule la session est obligatoire. Le reste est facultatif, vous pouvez rester anonyme.</p>
+      <p class="tag">Vous</p>
+      <h2>D'abord, qui êtes-vous ?</h2>
+      <p class="lead">Seul le nom de votre entreprise est obligatoire. Le reste est facultatif, vous pouvez rester anonyme.</p>
 
       <div class="field">
-        <label class="q" for="session">La formation que vous venez de suivre</label>
-        <select id="session"><option value="">Chargement…</option></select>
-      </div>
-      <div class="field" id="libreWrap" style="display:none">
-        <label class="q" for="sessionLibre">Précisez la formation et la date</label>
-        <input type="text" id="sessionLibre" placeholder="Ex. Manager une Brigade, 12 septembre">
+        <label class="q" for="entreprise">Le nom de votre entreprise</label>
+        <input type="text" id="entreprise" placeholder="Ex. Hôtel Le Negresco" autocomplete="organization">
       </div>
       <div class="field">
-        <label class="q" for="fonction">Votre fonction <span class="opt">facultatif</span></label>
-        <input type="text" id="fonction" placeholder="Ex. Chef de rang, Responsable boutique">
+        <label class="q" for="poste">Votre poste <span class="opt">facultatif</span></label>
+        <input type="text" id="poste" placeholder="Ex. Chef de rang, Responsable boutique" autocomplete="organization-title">
       </div>
       <div class="field">
         <label class="q" for="participant">Votre nom <span class="opt">facultatif</span></label>
-        <input type="text" id="participant" placeholder="Laissez vide pour rester anonyme">
+        <input type="text" id="participant" placeholder="Laissez vide pour rester anonyme" autocomplete="name">
       </div>
     </div>
   </section>
@@ -357,36 +353,16 @@ function suivante(depuis){
   }, 170);
 }
 
-/* sessions */
-fetch(API)
-  .then(function(r){ if(!r.ok) throw 0; return r.json(); })
-  .then(function(j){
-    var h = '<option value="">Choisissez votre session…</option>';
-    (j.sessions || []).forEach(function(x){ h += '<option value="'+x.id+'">'+x.name+'</option>'; });
-    h += '<option value="__autre">Ma session n\'est pas dans la liste</option>';
-    el('session').innerHTML = h;
-  })
-  .catch(function(){
-    el('session').innerHTML = '<option value="__autre">Ma session n\'est pas dans la liste</option>';
-    el('session').value = '__autre';
-    el('session').style.display = 'none';
-    el('libreWrap').style.display = 'block';
-  });
-
-el('session').addEventListener('change', function(){
-  el('libreWrap').style.display = this.value === '__autre' ? 'block' : 'none';
-});
-
 /* navigation */
 function showErr(m){ var e = el('err'); e.textContent = m; e.classList.add('on'); window.scrollTo({top:0,behavior:'smooth'}); }
 function hideErr(){ el('err').classList.remove('on'); }
 
-/* Aucune question n'est bloquante. Seule la session est demandée :
-   sans elle, la réponse n'est rattachable à aucune formation et devient inexploitable. */
+/* Aucune question n'est bloquante. Seule l'entreprise est demandée : c'est elle qui,
+   croisée avec la date de réponse, permet de rattacher la réponse à la bonne session.
+   Sans elle la réponse devient inexploitable, y compris comme preuve Qualiopi. */
 function verifier(){
-  if (step === 1) {
-    if (!el('session').value) return 'Indiquez seulement la formation que vous venez de suivre, le reste est libre.';
-    if (el('session').value === '__autre' && !val('sessionLibre')) return 'Précisez la formation et la date.';
+  if (step === 1 && !val('entreprise')) {
+    return 'Indiquez seulement le nom de votre entreprise, le reste est libre.';
   }
   return null;
 }
@@ -419,10 +395,9 @@ function envoyer(){
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      sessionId:    el('session').value === '__autre' ? null : el('session').value,
-      sessionLibre: el('session').value === '__autre' ? val('sessionLibre') : null,
+      entreprise:   val('entreprise'),
       participant:  val('participant'),
-      fonction:     val('fonction'),
+      poste:        val('poste'),
       echelles:     reponses.echelles,
       nps:          reponses.nps,
       besoin:       reponses.besoin,
