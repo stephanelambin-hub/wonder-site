@@ -168,6 +168,10 @@ nav.scrolled .nav-burger span{background:#00133D}
   .nav-links a:hover,.nav-links a.active{color:#7000FF}
   .nav-links a.active span{color:#7000FF}
 }
+
+/* TYPO : titres équilibrés, pas de mot orphelin */
+h1,h2,h3,h4,.section-title,.hero-desc,.hero-sub,.section-header p,.ladder-note,.cycle-loop,.cta-section p,.cta-wrap p,.dg-q,.dg-level,.dg-reading-title,.sw-tag{text-wrap:balance}
+p,li{text-wrap:pretty}
 </style>
 </head>
 <body>
@@ -176,12 +180,12 @@ nav.scrolled .nav-burger span{background:#00133D}
   <a href="/" class="nav-logo">WONDER</a>
   <div class="nav-links">
     <a href="/">Accueil</a>
+    <a href="/#systeme">Le Système</a>
     <a href="/wonder-x-ray">X-Ray</a>
     <a href="/academy" class="active">Academy</a>
     <a href="/wonder-ai">WONDER<span style="color:#FF8C00">·AI</span></a>
-    <a href="/events">Events</a>
     <a href="/a-propos">À propos</a>
-    <a href="/contact" class="nav-cta">Contact</a>
+    <a href="/contact" class="nav-cta">Prendre rendez-vous</a>
   </div>
   <button class="nav-burger" id="navBurger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
@@ -217,11 +221,26 @@ nav.scrolled .nav-burger span{background:#00133D}
   <div class="modules-grid" id="grid"></div>
 </section>
 
+
+<!-- SYSTÈME WONDER : bandeau -->
+<section style="background:#00133D;padding:64px 48px;text-align:center" class="fade-up">
+  <div style="max-width:960px;margin:0 auto">
+    <p style="font-size:10px;text-transform:uppercase;letter-spacing:2px;color:#B98CFF;font-weight:500;margin-bottom:10px">Le Système WONDER</p>
+    <h2 style="font-size:clamp(20px,2.6vw,30px);font-weight:500;color:#fff;margin-bottom:12px;letter-spacing:-0.3px">Une étape d'un cycle complet.</h2>
+    <p style="font-size:14px;color:rgba(255,255,255,0.6);font-weight:300;max-width:560px;margin:0 auto 28px;line-height:1.7">Chaque brique WONDER prend tout son sens dans le cycle : mesurer, former, ancrer, puis prouver le résultat.</p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center"><div style="flex:1 1 150px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:16px 14px;text-align:left"><span style="display:block;font-size:11px;color:rgba(255,255,255,0.45);font-weight:500">01</span><span style="display:block;font-size:16px;color:#fff;font-weight:500;margin-top:2px">Mesurer</span><span style="display:block;font-size:11px;color:rgba(255,255,255,0.45);font-weight:300;margin-top:2px">X-Ray</span></div><div style="flex:1 1 150px;background:#7000FF;border:1px solid #7000FF;border-radius:10px;padding:16px 14px;text-align:left"><span style="display:block;font-size:11px;color:rgba(255,255,255,0.85);font-weight:500">02</span><span style="display:block;font-size:16px;color:#fff;font-weight:500;margin-top:2px">Former</span><span style="display:block;font-size:11px;color:rgba(255,255,255,0.85);font-weight:300;margin-top:2px">Academy et Events</span><span style="display:block;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;margin-top:8px;color:#fff;font-weight:500">Vous êtes ici</span></div><div style="flex:1 1 150px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:16px 14px;text-align:left"><span style="display:block;font-size:11px;color:rgba(255,255,255,0.45);font-weight:500">03</span><span style="display:block;font-size:16px;color:#fff;font-weight:500;margin-top:2px">Ancrer</span><span style="display:block;font-size:11px;color:rgba(255,255,255,0.45);font-weight:300;margin-top:2px">WONDER·AI</span></div><div style="flex:1 1 150px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:16px 14px;text-align:left"><span style="display:block;font-size:11px;color:rgba(255,255,255,0.45);font-weight:500">04</span><span style="display:block;font-size:16px;color:#fff;font-weight:500;margin-top:2px">Prouver</span><span style="display:block;font-size:11px;color:rgba(255,255,255,0.45);font-weight:300;margin-top:2px">Nouvelle mesure</span></div></div>
+    <a href="/#systeme" style="display:inline-block;margin-top:28px;color:#fff;font-size:13px;font-weight:500;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.4);padding-bottom:2px">Découvrir le Système WONDER →</a>
+  </div>
+</section>
+
 <!-- CTA -->
 <section class="cta-wrap fade-up">
   <h2>Passons à l'action.</h2>
-  <p>Échangeons sur vos enjeux et construisons ensemble vos transformations.</p>
-  <a class="btn-v" href="https://wonderxperience.fillout.com/rencontre-stephane-lambin" target="_blank" rel="noopener"href="https://wonderxperience.fillout.com/rencontre-stephane-lambin" target="_blank" rel="noopener">Prendre rendez-vous →</a>
+  <p>Échangeons sur vos enjeux, ou commencez par situer votre niveau de service.</p>
+  <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+    <a class="btn-v" href="/rendez-vous" target="_blank" rel="noopener">Prendre rendez-vous →</a>
+    <a href="/diagnostic" style="display:inline-flex;align-items:center;border:1px solid rgba(0,19,61,0.22);color:#00133D;padding:14px 28px;border-radius:6px;font-size:13px;font-weight:500;text-decoration:none">Évaluer mon niveau en 3 minutes</a>
+  </div>
 </section>
 
 <!-- FOOTER -->
@@ -318,6 +337,7 @@ function buildGrid(filtered) {
       </div>`;
     grid.appendChild(div);
   });
+  if (window.wonderTypo) window.wonderTypo(grid);
 }
 
 buildGrid(modules);
@@ -382,9 +402,10 @@ function openModal(mod) {
       </div>
       ${relatedHTML ? `<hr class="modal-divider"><p class="modal-section-label">Modules associés</p><div class="modal-related">${relatedHTML}</div>` : ''}
       <div class="modal-cta">
-        <button class="btn-v" onclick="closeModal()" href="https://wonderxperience.fillout.com/rencontre-stephane-lambin" target="_blank" rel="noopener">Nous contacter pour ce module →</button>
+        <a class="btn-v" href="/rendez-vous" target="_blank" rel="noopener">Échanger sur ce module avec un expert WONDER →</a>
       </div>
     </div>`;
+  if (window.wonderTypo) window.wonderTypo(box);
   document.getElementById('modal').classList.add('active');
   document.body.style.overflow = 'hidden';
 }
@@ -426,6 +447,74 @@ if(burger&&links){
     });
   });
 }
+</script>
+<script>
+/* WONDER : typographie, pas de mot seul sur une ligne */
+(function(){
+  var SEL = 'h1,h2,h3,h4,p,li,label span,.btn-violet,.btn-v,.btn-ghost,.btn-outline-white,.dg-opt-txt';
+  var NB = ' ';
+  function fixText(s){
+    return s
+      .replace(/ ([:;?!»])/g, NB + '$1')
+      .replace(/(«) /g, '$1' + NB)
+      .replace(/ ([–—]) /g, ' $1\u2060' + NB)
+      .replace(/(^|[\s ])([A-Za-zÀ-ÿ]|[Ll]es?|[Ll]a|[Uu]ne?|[Dd]es?|[Dd]u|[Aa]ux?|[Ee]n) (?=\S)/g, function(m, a, w){ return a + w + NB; });
+  }
+  function textNodes(el){
+    var out = [], w = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null);
+    while (w.nextNode()) out.push(w.currentNode);
+    return out;
+  }
+  function bindLast(nodes){
+    var seen = false;
+    for (var k = nodes.length - 1; k >= 0; k--) {
+      var s = nodes[k].nodeValue;
+      for (var j = s.length - 1; j >= 0; j--) {
+        if (/[\s]/.test(s[j]) && s[j] !== NB) {
+          if (!seen) continue;
+          var j0 = j; while (j0 > 0 && /\s/.test(s[j0-1]) && s[j0-1] !== NB) j0--;
+          nodes[k].nodeValue = s.slice(0, j0) + NB + s.slice(j + 1);
+          return;
+        } else if (s[j] !== NB) { seen = true; } else if (seen) { return; }
+      }
+    }
+  }
+  function bindFirst(nodes){
+    var seen = false;
+    for (var k = 0; k < nodes.length; k++) {
+      var s = nodes[k].nodeValue;
+      for (var j = 0; j < s.length; j++) {
+        if (/\s/.test(s[j]) && s[j] !== NB) {
+          if (!seen) continue;
+          var j1 = j; while (j1 < s.length-1 && /\s/.test(s[j1+1]) && s[j1+1] !== NB) j1++;
+          nodes[k].nodeValue = s.slice(0, j) + NB + s.slice(j1 + 1);
+          return;
+        } else if (s[j] !== NB) { seen = true; } else if (seen) { return; }
+      }
+    }
+  }
+  function fix(root){
+    (root || document).querySelectorAll(SEL).forEach(function(el){
+      if (el.dataset.wTypo) return;
+      var nodes = textNodes(el);
+      nodes.forEach(function(n){ n.nodeValue = fixText(fixText(n.nodeValue)); });
+      var words = el.textContent.trim().split(/\s+/).length;
+      if (words >= 4) {
+        // segment par segment quand il y a des retours à la ligne forcés
+        var segs = [[]];
+        var w = document.createTreeWalker(el, NodeFilter.SHOW_TEXT | NodeFilter.SHOW_ELEMENT, null);
+        while (w.nextNode()) { var c = w.currentNode; if (c.nodeName === 'BR') segs.push([]); else if (c.nodeType === 3) segs[segs.length-1].push(c); }
+        segs.forEach(function(sg){
+          var txt = sg.map(function(n){ return n.nodeValue; }).join('').trim();
+          if (txt.split(/[\s\u00A0]+/).length >= 3) { bindFirst(sg); bindLast(sg); }
+        });
+      }
+      el.dataset.wTypo = '1';
+    });
+  }
+  window.wonderTypo = fix;
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function(){ fix(); }); else fix();
+})();
 </script>
 </body>
 </html>

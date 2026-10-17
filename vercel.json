@@ -87,6 +87,21 @@
       "source": "/demarche",
       "destination": "/a-propos",
       "statusCode": 301
+    },
+    {
+      "source": "/rendez-vous",
+      "destination": "https://wonderxperience.fillout.com/rencontre-stephane-lambin",
+      "statusCode": 302
+    },
+    {
+      "source": "/systeme",
+      "destination": "/#systeme",
+      "statusCode": 301
+    },
+    {
+      "source": "/systeme-wonder",
+      "destination": "/#systeme",
+      "statusCode": 301
     }
   ]
 }
