@@ -354,12 +354,29 @@ function submitForm(e) {
   e.preventDefault();
   const form = document.getElementById('contactForm');
   const success = document.getElementById('formSuccess');
-  // Simulation envoi – à brancher sur Airtable ou email service
-  setTimeout(() => {
-    form.reset();
-    success.style.display = 'block';
-    setTimeout(() => success.style.display = 'none', 5000);
-  }, 400);
+  const btn = form.querySelector('button[type="submit"], .form-submit');
+  const label = btn ? btn.textContent : '';
+  let err = document.getElementById('formError');
+  if (!err) {
+    err = document.createElement('p'); err.id = 'formError';
+    err.style.cssText = 'display:none;margin-top:14px;font-size:13px;color:#b3261e;text-align:center';
+    err.innerHTML = 'Le message n\'a pas pu partir. Merci de réessayer ou de nous écrire à <a href="mailto:contact@wonderxperience.com" style="color:#7000FF">contact@wonderxperience.com</a>.';
+    form.appendChild(err);
+  }
+  err.style.display = 'none';
+  if (btn) { btn.disabled = true; btn.textContent = 'Envoi en cours…'; }
+  const data = new FormData(form);
+  data.append('_subject', 'Site WONDER : nouveau message de ' + (data.get('prenom') || '') + ' ' + (data.get('nom') || ''));
+  if (data.get('email')) data.append('_replyto', data.get('email'));
+  fetch('https://formspree.io/f/xlgawalb', { method: 'POST', body: data, headers: { 'Accept': 'application/json' } })
+    .then(function(res){
+      if (!res.ok) throw new Error('envoi');
+      form.reset();
+      success.style.display = 'block';
+      setTimeout(function(){ success.style.display = 'none'; }, 6000);
+    })
+    .catch(function(){ err.style.display = 'block'; })
+    .finally(function(){ if (btn) { btn.disabled = false; btn.textContent = label; } });
 }
 
 const obs=new IntersectionObserver(entries=>{
