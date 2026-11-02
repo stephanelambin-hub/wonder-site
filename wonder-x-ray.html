@@ -274,6 +274,29 @@ nav.scrolled .nav-burger span{background:#00133D}
 /* TYPO : titres équilibrés, pas de mot orphelin */
 h1,h2,h3,h4,.section-title,.hero-desc,.hero-sub,.section-header p,.ladder-note,.cycle-loop,.cta-section p,.cta-wrap p,.dg-q,.dg-level,.dg-reading-title,.sw-tag{text-wrap:balance}
 p,li{text-wrap:pretty}
+
+/* COMPLÉMENTARITÉ AVEC LES STANDARDS */
+.s-std{background:#00133D;padding:80px 48px;color:#fff}
+.s-std .s-title{color:#fff}
+.std-tag{display:block;text-align:center;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#B98CFF;font-weight:500;margin-bottom:14px}
+.std-lead{max-width:720px;margin:0 auto 40px;text-align:center;font-size:15px;line-height:1.8;color:rgba(255,255,255,0.78);font-weight:300}
+.std-lead strong{color:#fff;font-weight:500}
+.std-names{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;max-width:900px;margin:0 auto 44px}
+.std-names span{border:1px solid rgba(255,255,255,0.22);border-radius:999px;padding:8px 16px;font-size:12.5px;color:rgba(255,255,255,0.85);font-weight:300;letter-spacing:.2px}
+.std-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:900px;margin:0 auto}
+.std-col{border-radius:14px;padding:28px 26px}
+.std-col.std-them{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.14)}
+.std-col.std-us{background:#fff;color:#00133D}
+.std-col h3{font-size:17px;font-weight:500;margin-bottom:4px}
+.std-col .std-kicker{font-size:12.5px;font-weight:300;margin-bottom:18px;opacity:.75}
+.std-col.std-us .std-kicker{color:#7000FF;opacity:1;font-weight:400}
+.std-col dl{margin:0}
+.std-col dt{font-size:10.5px;letter-spacing:1.6px;text-transform:uppercase;font-weight:500;margin-top:16px;opacity:.6}
+.std-col.std-us dt{color:#7000FF;opacity:1}
+.std-col dd{margin:4px 0 0;font-size:14px;line-height:1.65;font-weight:300}
+.std-close{max-width:720px;margin:40px auto 0;text-align:center;font-size:16px;line-height:1.75;color:#fff;font-weight:400}
+.std-close span{display:block;margin-top:10px;font-size:13.5px;color:rgba(255,255,255,0.65);font-weight:300}
+@media(max-width:768px){.s-std{padding:60px 22px}.std-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -321,6 +344,39 @@ p,li{text-wrap:pretty}
 </section>
 
 <!-- MÉTHODOLOGIE -->
+<!-- COMPLÉMENTARITÉ AVEC LES STANDARDS -->
+<section class="s-std fade-up" id="standards">
+  <div class="container">
+    <span class="std-tag">Vos standards restent en place</span>
+    <h2 class="s-title" style="text-align:center">Un complément à vos standards</h2>
+    <p class="std-lead">WONDER X-Ray ne remplace ni vos audits qualité, ni les standards de votre marque. Il peut s'y ajouter. <strong>Là où le standard qualité insiste sur la procédure, WONDER X-Ray insiste sur la motivation des équipes</strong> : ce qui leur donne du sens, une vision, et l'envie d'être au top.</p>
+    <div class="std-names" aria-label="Référentiels avec lesquels WONDER X-Ray est complémentaire">
+      <span>LQA</span><span>Forbes Travel Guide</span><span>Guide Michelin, Étoiles et Clés</span><span>Classement Atout France</span><span>Distinction Palace</span><span>Standards de votre marque ou de votre groupe</span><span>Programmes clients mystère internes</span>
+    </div>
+    <div class="std-grid">
+      <div class="std-col std-them">
+        <h3>Vos standards et audits qualité</h3>
+        <p class="std-kicker">La référence à tenir</p>
+        <dl>
+          <dt>Ce qu'ils mesurent</dt><dd>La conformité à un référentiel précis : des centaines de critères, du check-in au room service.</dd>
+          <dt>La question posée</dt><dd>Le standard a-t-il été respecté ?</dd>
+          <dt>Ce qu'ils apportent</dt><dd>Une exigence commune, une constance, un niveau reconnu par le marché.</dd>
+        </dl>
+      </div>
+      <div class="std-col std-us">
+        <h3>WONDER X-Ray</h3>
+        <p class="std-kicker">L'envie de dépasser la référence</p>
+        <dl>
+          <dt>Ce qu'il mesure</dt><dd>L'expérience vécue et le souvenir laissé, à travers six thématiques humaines.</dd>
+          <dt>La question posée</dt><dd>Qu'est-ce qui donne envie à vos équipes d'aller plus loin que le standard ?</dd>
+          <dt>Ce qu'il apporte</dt><dd>Du sens, une vision partagée, et des équipes valorisées sur ce qu'elles font de mieux.</dd>
+        </dl>
+      </div>
+    </div>
+    <p class="std-close">Le standard dit quoi faire. WONDER X-Ray donne l'envie de le faire.<span>Des équipes qui ont envie tiennent mieux leurs standards, y compris le jour de l'inspection.</span></p>
+  </div>
+</section>
+
 <section class="s-white fade-up">
   <div class="container">
     <h2 class="s-title">Notre méthodologie</h2>
