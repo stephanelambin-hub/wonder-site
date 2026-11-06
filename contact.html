@@ -213,6 +213,10 @@ nav.scrolled .nav-burger span{background:#00133D}
 /* TYPO : titres équilibrés, pas de mot orphelin */
 h1,h2,h3,h4,.section-title,.hero-desc,.hero-sub,.section-header p,.ladder-note,.cycle-loop,.cta-section p,.cta-wrap p,.dg-q,.dg-level,.dg-reading-title,.sw-tag{text-wrap:balance}
 p,li{text-wrap:pretty}
+
+/* NAV : tient sur une ligne avec l'entrée Actualités */
+.nav-links a{white-space:nowrap}
+@media(max-width:1240px){.nav-links{gap:20px}}
 </style>
 </head>
 <body>
@@ -225,6 +229,7 @@ p,li{text-wrap:pretty}
     <a href="/wonder-x-ray">X-Ray</a>
     <a href="/academy">Academy</a>
     <a href="/wonder-ai">WONDER<span style="color:#FF8C00">·AI</span></a>
+    <a href="https://blog.wonderxperience.com/">Actualités</a>
     <a href="/a-propos">À propos</a>
     <a href="/contact" class="nav-cta active">Prendre rendez-vous</a>
   </div>
@@ -330,6 +335,7 @@ p,li{text-wrap:pretty}
     <a href="mailto:contact@wonderxperience.com" style="color:rgba(255,255,255,0.45);font-size:11px;font-weight:300;text-decoration:none">contact@wonderxperience.com</a>
   </div>
   <div style="display:flex;flex-direction:column;gap:5px">
+    <a href="https://blog.wonderxperience.com/" style="color:rgba(255,255,255,0.45);font-size:11px;text-decoration:none;white-space:nowrap">Actualités</a>
     <a href="/mentions-legales" style="color:rgba(255,255,255,0.45);font-size:11px;text-decoration:none;white-space:nowrap">Mentions légales</a>
     <a href="/politique-de-confidentialite" style="color:rgba(255,255,255,0.45);font-size:11px;text-decoration:none;white-space:nowrap">Politique de confidentialité</a>
   </div>

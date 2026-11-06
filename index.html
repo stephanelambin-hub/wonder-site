@@ -435,6 +435,31 @@ section[id]{scroll-margin-top:72px}
 /* TYPO : titres équilibrés, pas de mot orphelin */
 h1,h2,h3,h4,.section-title,.hero-desc,.hero-sub,.section-header p,.ladder-note,.cycle-loop,.cta-section p,.cta-wrap p,.dg-q,.dg-level,.dg-reading-title,.sw-tag{text-wrap:balance}
 p,li{text-wrap:pretty}
+
+/* NAV : tient sur une ligne avec l'entrée Actualités */
+.nav-links a{white-space:nowrap}
+@media(max-width:1240px){.nav-links{gap:20px}}
+
+/* ACTUALITÉS (blog WordPress) */
+.news{padding:80px 48px;background:#fff}
+.news[hidden]{display:none}
+.news-head{text-align:center;margin-bottom:36px}
+.news-tag{display:block;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#7000FF;font-weight:500;margin-bottom:10px}
+.news-head h2{font-size:clamp(22px,2.8vw,34px);font-weight:500;color:#00133D}
+.news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:1100px;margin:0 auto}
+.news-grid.n1{grid-template-columns:minmax(0,420px);justify-content:center}
+.news-grid.n2{grid-template-columns:repeat(2,minmax(0,420px));justify-content:center}
+.news-card{display:flex;flex-direction:column;background:#fff;border:1px solid #e8e4eb;border-radius:12px;overflow:hidden;text-decoration:none;color:inherit;transition:transform .2s,box-shadow .2s}
+.news-card:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(0,19,61,0.08)}
+.news-img{aspect-ratio:16/9;background:#f5f0f2;overflow:hidden}
+.news-img img{width:100%;height:100%;object-fit:cover;display:block}
+.news-body{padding:20px 22px 22px;display:flex;flex-direction:column;gap:8px;flex:1}
+.news-date{font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#888;font-weight:400}
+.news-title{font-size:16px;font-weight:500;color:#00133D;line-height:1.45}
+.news-more{margin-top:auto;padding-top:6px;font-size:12.5px;color:#7000FF;font-weight:500}
+.news-all{text-align:center;margin-top:30px}
+.news-all a{font-size:13px;color:#7000FF;text-decoration:none;font-weight:500}
+@media(max-width:900px){.news{padding:60px 22px}.news-grid,.news-grid.n2{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -448,6 +473,7 @@ p,li{text-wrap:pretty}
     <a href="/wonder-x-ray">X-Ray</a>
     <a href="/academy">Academy</a>
     <a href="/wonder-ai">WONDER<span style="color:#FF8C00">·AI</span></a>
+    <a href="https://blog.wonderxperience.com/">Actualités</a>
     <a href="/a-propos">À propos</a>
     <a href="/contact" class="nav-cta">Prendre rendez-vous</a>
   </div>
@@ -688,6 +714,39 @@ p,li{text-wrap:pretty}
   </div>
 </section>
 
+<!-- ACTUALITÉS : 3 derniers articles du blog, mis à jour automatiquement -->
+<section class="news" id="actualites" hidden>
+  <div class="news-head">
+    <span class="news-tag">Actualités</span>
+    <h2>Nos dernières actualités</h2>
+  </div>
+  <div class="news-grid" id="newsGrid"></div>
+  <div class="news-all"><a href="https://blog.wonderxperience.com/">Toutes nos actualités →</a></div>
+</section>
+<script>
+(function(){
+  var API = 'https://blog.wonderxperience.com/wp-json/wp/v2/posts?per_page=3&_embed=wp:featuredmedia&_fields=link,date,title,_links,_embedded';
+  function txt(h){ var d=document.createElement('div'); d.innerHTML=h||''; return d.textContent||''; }
+  fetch(API).then(function(r){ if(!r.ok) throw 0; return r.json(); }).then(function(posts){
+    if(!posts || !posts.length) return;
+    var g=document.getElementById('newsGrid'); g.className='news-grid n'+Math.min(posts.length,3);
+    posts.forEach(function(p){
+      var m=p._embedded && p._embedded['wp:featuredmedia'] && p._embedded['wp:featuredmedia'][0];
+      var src = m && (m.media_details && m.media_details.sizes && (m.media_details.sizes.medium_large||m.media_details.sizes.large||{}).source_url || m.source_url);
+      var a=document.createElement('a'); a.className='news-card'; a.href=p.link;
+      var date=new Date(p.date).toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'});
+      a.innerHTML=(src?'<div class="news-img"><img loading="lazy" alt=""></div>':'')+'<div class="news-body"><span class="news-date"></span><span class="news-title"></span><span class="news-more">Lire l\'article →</span></div>';
+      if(src){ var im=a.querySelector('img'); im.src=src; im.alt=txt(p.title.rendered); }
+      a.querySelector('.news-date').textContent=date;
+      a.querySelector('.news-title').textContent=txt(p.title.rendered);
+      g.appendChild(a);
+    });
+    document.getElementById('actualites').hidden=false;
+    if(window.wonderTypo) window.wonderTypo(document.getElementById('actualites'));
+  }).catch(function(){});
+})();
+</script>
+
 <!-- CTA FINAL -->
 <section class="cta-section fade-up" style="padding-top:64px">
   <div class="container">
@@ -711,6 +770,7 @@ p,li{text-wrap:pretty}
     <a href="mailto:contact@wonderxperience.com" style="color:rgba(255,255,255,0.45);font-size:11px;font-weight:300;text-decoration:none">contact@wonderxperience.com</a>
   </div>
   <div style="display:flex;flex-direction:column;gap:5px">
+    <a href="https://blog.wonderxperience.com/" style="color:rgba(255,255,255,0.45);font-size:11px;text-decoration:none;white-space:nowrap">Actualités</a>
     <a href="/mentions-legales" style="color:rgba(255,255,255,0.45);font-size:11px;text-decoration:none;white-space:nowrap">Mentions légales</a>
     <a href="/politique-de-confidentialite" style="color:rgba(255,255,255,0.45);font-size:11px;text-decoration:none;white-space:nowrap">Politique de confidentialité</a>
   </div>
