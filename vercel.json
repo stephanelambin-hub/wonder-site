@@ -54,6 +54,15 @@
           "value": "public, max-age=0, must-revalidate"
         }
       ]
+    },
+    {
+      "source": "/img/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
+        }
+      ]
     }
   ],
   "redirects": [
@@ -101,6 +110,21 @@
     {
       "source": "/systeme-wonder",
       "destination": "/#systeme",
+      "statusCode": 301
+    },
+    {
+      "source": "/contact_1",
+      "destination": "/contact",
+      "statusCode": 301
+    },
+    {
+      "source": "/index_6",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/wonder-ai_2",
+      "destination": "/wonder-ai",
       "statusCode": 301
     }
   ]
